@@ -31,9 +31,6 @@
   <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest" defer></script>
-
   <!-- Favicon -->
   <link rel="icon"
         type="image/svg+xml"
@@ -532,7 +529,10 @@
     &copy; 2025 Irshad Sheikh. All rights reserved.
   </footer>
 
-  <!-- Theme Toggle Script -->
+  <!-- Lucide Icons (loaded synchronously before init script) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Theme Toggle + Icon Init Script -->
   <script>
     var THEMES = ['lofi', 'halloween', 'system'];
     var THEME_ICONS = {
@@ -564,9 +564,7 @@
         newIcon.setAttribute('data-lucide', iconName);
         newIcon.className = 'w-5 h-5';
         iconEl.replaceWith(newIcon);
-        if (typeof lucide !== 'undefined') {
-          lucide.createIcons({ nodes: [newIcon] });
-        }
+        lucide.createIcons({ nodes: [newIcon] });
       }
     }
 
@@ -613,29 +611,9 @@
       }
     });
 
-    // Initialize on DOM ready
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function() {
-        loadTheme();
-        if (typeof lucide !== 'undefined') lucide.createIcons();
-      });
-    } else {
-      loadTheme();
-      if (typeof lucide !== 'undefined') lucide.createIcons();
-    }
-
-    // Also init icons when Lucide loads (deferred script)
-    document.addEventListener('DOMContentLoaded', function() {
-      var checkLucide = setInterval(function() {
-        if (typeof lucide !== 'undefined') {
-          lucide.createIcons();
-          updateThemeIcon(localStorage.getItem('theme') || 'system');
-          clearInterval(checkLucide);
-        }
-      }, 50);
-      // Stop checking after 5 seconds
-      setTimeout(function() { clearInterval(checkLucide); }, 5000);
-    });
+    // Initialize: Lucide is loaded synchronously above, so it's available now
+    lucide.createIcons();
+    loadTheme();
   </script>
 
 </body>
