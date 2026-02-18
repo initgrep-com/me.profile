@@ -1,47 +1,27 @@
 <!DOCTYPE html>
-<html lang="en"
-      data-theme="lofi">
+<html lang="en" data-theme="lofi">
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
           content="Irshad Sheikh's Resume – Senior Software Engineer with 9+ years of experience in Java, Spring, React, and DevOps. Based in Eindhoven, Netherlands.">
-    <title>Irshad Sheikh – Resume</title><!-- Structured Data -->
-    <script
-            type="application/ld+json"> { "@context": "http://schema.org", "@type": "Person", "name": "Irshad Sheikh", "email": "irshsheik@gmail.com", "address": { "@type": "PostalAddress", "addressLocality": "Eindhoven", "addressCountry": "Netherlands" }, "url": "https://linkedin.com/in/irshsheik", "jobTitle": "Senior Software Engineer" } </script>
+    <title>Irshad Sheikh – Resume</title>
+    <!-- Structured Data -->
+    <script type="application/ld+json">{ "@context": "http://schema.org", "@type": "Person", "name": "Irshad Sheikh", "email": "irshsheik@gmail.com", "address": { "@type": "PostalAddress", "addressLocality": "Eindhoven", "addressCountry": "Netherlands" }, "url": "https://linkedin.com/in/irshsheik", "jobTitle": "Senior Software Engineer" }</script>
     <!-- DaisyUI + Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5"
-          rel="stylesheet"
-          type="text/css" />
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css"
-          rel="stylesheet"
-          type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script><!-- Favicon -->
-    <link rel="icon"
-          type="image/svg+xml"
-          href="fav.svg" /><!-- Theme colors -->
-    <meta name="theme-color"
-          content="#ffffff"><!-- Smooth theme transitions -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="fav.svg" />
+    <meta name="theme-color" content="#ffffff">
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
-        html,
-        body,
-        .bg-base-100,
-        .bg-base-200,
-        .bg-base-300,
-        .text-base-content,
-        .text-primary,
-        .card,
-        .btn,
-        .badge,
-        header,
-        footer,
-        main {
+        html, body, .bg-base-100, .bg-base-200, .bg-base-300,
+        .text-base-content, .text-primary, .card, .btn, .badge,
+        header, footer, main {
             transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
         }
 
@@ -53,419 +33,579 @@
                 color-scheme: light !important;
             }
 
-            header, footer, #themeBtn, [download] {
-                display: none !important;
-            }
+            header, footer, #themeBtn, #printBtn, [download], .no-print { display: none !important; }
 
-            * {
-                transition: none !important;
-                box-shadow: none !important;
-            }
+            * { transition: none !important; box-shadow: none !important; }
 
-            .card {
-                break-inside: avoid;
-                border: 1px solid #e0e0e0;
-                margin-bottom: 0.5rem;
-            }
+            .card { break-inside: avoid; border: 1px solid #e0e0e0; margin-bottom: 0.5rem; }
 
-            main {
-                max-width: 100% !important;
-                padding: 0 !important;
-            }
+            main { max-width: 100% !important; padding: 0 !important; }
 
-            body {
-                font-size: 11pt;
-            }
+            body { font-size: 11pt; }
         }
-    </style><!-- Theme initialization (prevent flash) -->
-    <script> (function () { var savedTheme = localStorage.getItem('theme') || 'system'; var effectiveTheme = savedTheme; if (savedTheme === 'system') { effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'halloween' : 'lofi'; } document.documentElement.setAttribute('data-theme', effectiveTheme); })(); </script>
+    </style>
+    <!-- Theme initialization (prevent flash) -->
+    <script>(function () { var s = localStorage.getItem('theme') || 'system'; document.documentElement.setAttribute('data-theme', s === 'system' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'halloween' : 'lofi') : s); })();</script>
 </head>
 
 <body class="bg-base-100 text-base-content min-h-screen flex flex-col font-sans antialiased leading-relaxed">
-    <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 bg-base-100 border-b border-base-200">
-        <div class="flex items-center justify-between px-4 py-3 max-w-4xl mx-auto w-full"><a href="#"
-               class="text-xl font-bold flex items-center gap-2 text-base-content hover:text-primary transition-colors"><i
-                   data-lucide="terminal"
-                   aria-hidden="true"
-                   class="w-5 h-5"></i><span>Irshad Sheikh</span></a>
-            <div class="flex items-center gap-2"><a href="irshad-sheikh_cv.pdf"
-                   download
-                   class="btn btn-primary btn-sm gap-2"><i data-lucide="download"
-                       aria-hidden="true"
-                       class="w-4 h-4"></i> Resume </a><button onclick="toggleTheme()"
-                        class="btn btn-ghost btn-circle btn-sm"
-                        id="themeBtn"
-                        aria-label="Toggle theme"><i data-lucide="sun"
-                       class="w-5 h-5"></i></button></div>
+
+    <!-- Navbar — actions only, no branding -->
+    <header class="sticky top-0 z-50 bg-base-100/90 backdrop-blur-sm border-b border-base-200">
+        <div class="flex items-center justify-end px-4 py-2 max-w-4xl mx-auto w-full gap-2">
+            <button id="printBtn" onclick="window.print()" class="btn btn-ghost btn-sm gap-2" aria-label="Print resume">
+                <i data-lucide="printer" aria-hidden="true" class="w-4 h-4"></i>
+                <span class="hidden sm:inline text-sm">Print</span>
+            </button>
+            <a href="irshad-sheikh_cv.pdf" download class="btn btn-primary btn-sm gap-2">
+                <i data-lucide="download" aria-hidden="true" class="w-4 h-4"></i>
+                <span class="hidden sm:inline text-sm">Download PDF</span>
+            </a>
+            <button onclick="toggleTheme()" class="btn btn-ghost btn-circle btn-sm" id="themeBtn" aria-label="Toggle theme">
+                <i data-lucide="monitor" class="w-5 h-5"></i>
+            </button>
         </div>
     </header>
-    <main class="max-w-4xl mx-auto px-4 py-8 space-y-8 flex-grow w-full"><!-- Profile Header -->
-        <section class="card bg-base-200 shadow-sm">
+
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-6 flex-grow w-full">
+
+        <!-- Hero / Profile Header -->
+        <section class="card overflow-hidden">
+            <!-- Gradient accent bar -->
+            <div class="h-2 bg-gradient-to-r from-primary via-secondary to-accent"></div>
             <div class="card-body">
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <div class="space-y-2">
-                        <h1 class="text-3xl font-bold text-base-content">Irshad Sheikh</h1>
-                        <p class="text-base-content/70 text-lg">Senior Software Engineer</p>
-                        <div class="flex flex-wrap gap-3 mt-2"><span
-                                  class="flex items-center gap-1.5 text-sm text-base-content/70"><i
-                                   data-lucide="map-pin"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary"></i> Eindhoven, Netherlands </span><a
-                               href="mailto:irshsheik@gmail.com"
-                               class="flex items-center gap-1.5 text-sm link link-primary no-underline hover:underline"><i
-                                   data-lucide="mail"
-                                   aria-hidden="true"
-                                   class="w-4 h-4"></i> irshsheik@gmail.com </a></div>
+                <div class="flex flex-col sm:flex-row sm:items-start gap-5">
+                    <!-- Avatar -->
+                    <div class="shrink-0 no-print">
+                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Easton&flip=true"
+                             alt="Irshad Sheikh avatar"
+                             class="w-20 h-20 rounded-full" />
                     </div>
-                    <nav aria-label="Social links"
-                         class="flex gap-2"><a href="https://linkedin.com/in/irshsheik"
-                           target="_blank"
-                           class="btn btn-ghost btn-sm gap-2"><i data-lucide="linkedin"
-                               aria-hidden="true"
-                               class="w-4 h-4"></i> LinkedIn </a><a href="https://github.com/irshsheik"
-                           target="_blank"
-                           class="btn btn-ghost btn-sm gap-2"><i data-lucide="github"
-                               aria-hidden="true"
-                               class="w-4 h-4"></i> GitHub </a></nav>
-                </div>
-            </div>
-        </section><!-- Summary -->
-        <section class="card bg-base-200 shadow-sm">
-            <div class="card-body">
-                <h2 class="card-title text-lg"><span
-                          class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0"><i
-                           data-lucide="speech"
-                           aria-hidden="true"
-                           class="w-5 h-5 text-primary"></i></span> Summary </h2>
-                <p class="text-base-content/80"> Experienced <strong class="text-base-content">Senior Software
-                        Engineer</strong> with 9+ years of expertise in designing scalable systems and solving complex
-                    algorithmic challenges. Strong in applying data structures to optimize performance and build
-                    resilient, user-centered solutions with modern technologies. </p>
-            </div>
-        </section><!-- Skills -->
-        <section class="card bg-base-200 shadow-sm">
-            <div class="card-body">
-                <h2 class="card-title text-lg"><span
-                          class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center shrink-0"><i
-                           data-lucide="lightbulb"
-                           aria-hidden="true"
-                           class="w-5 h-5 text-secondary"></i></span> Skills </h2>
-                <div class="space-y-4 mt-2">
-                    <div class="flex flex-wrap items-center gap-3">
-                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content min-w-[140px]"><i
-                               data-lucide="code"
-                               aria-hidden="true"
-                               class="w-4 h-4 text-base-content/50"></i> Languages </h3>
-                        <div class="flex flex-wrap gap-2"><span class="badge badge-ghost">Java</span><span
-                                  class="badge badge-ghost">JavaScript</span><span
-                                  class="badge badge-ghost">TypeScript</span><span
-                                  class="badge badge-ghost">Python</span></div>
-                    </div>
-                    <div class="flex flex-wrap items-center gap-3">
-                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content min-w-[140px]"><i
-                               data-lucide="layers"
-                               aria-hidden="true"
-                               class="w-4 h-4 text-base-content/50"></i> Frameworks </h3>
-                        <div class="flex flex-wrap gap-2"><span class="badge badge-ghost">Spring Boot</span><span
-                                  class="badge badge-ghost">JPA/Hibernate</span><span
-                                  class="badge badge-ghost">React</span></div>
-                    </div>
-                    <div class="flex flex-wrap items-center gap-3">
-                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content min-w-[140px]"><i
-                               data-lucide="cloud"
-                               aria-hidden="true"
-                               class="w-4 h-4 text-base-content/50"></i> Cloud & DevOps </h3>
-                        <div class="flex flex-wrap gap-2"><span class="badge badge-ghost">Docker</span><span
-                                  class="badge badge-ghost">Kubernetes</span><span
-                                  class="badge badge-ghost">Microservices</span><span
-                                  class="badge badge-ghost">Azure</span><span
-                                  class="badge badge-ghost">Prometheus</span><span
-                                  class="badge badge-ghost">Grafana</span></div>
-                    </div>
-                    <div class="flex flex-wrap items-center gap-3">
-                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content min-w-[140px]"><i
-                               data-lucide="database"
-                               aria-hidden="true"
-                               class="w-4 h-4 text-base-content/50"></i> Databases </h3>
-                        <div class="flex flex-wrap gap-2"><span class="badge badge-ghost">MySQL</span><span
-                                  class="badge badge-ghost">MongoDB</span></div>
-                    </div>
-                    <div class="flex flex-wrap items-center gap-3">
-                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content min-w-[140px]"><i
-                               data-lucide="test-tubes"
-                               aria-hidden="true"
-                               class="w-4 h-4 text-base-content/50"></i> Testing </h3>
-                        <div class="flex flex-wrap gap-2"><span class="badge badge-ghost">JUnit</span><span
-                                  class="badge badge-ghost">Mockito</span><span
-                                  class="badge badge-ghost">Testcontainers</span><span
-                                  class="badge badge-ghost">Cucumber</span><span
-                                  class="badge badge-ghost">Cypress</span><span
-                                  class="badge badge-ghost">Wiremock</span></div>
-                    </div>
-                    <div class="flex flex-wrap items-center gap-3">
-                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content min-w-[140px]"><i
-                               data-lucide="git-branch"
-                               aria-hidden="true"
-                               class="w-4 h-4 text-base-content/50"></i> CI/CD </h3>
-                        <div class="flex flex-wrap gap-2"><span class="badge badge-ghost">Git</span><span
-                                  class="badge badge-ghost">Bitbucket</span><span
-                                  class="badge badge-ghost">Bamboo</span><span class="badge badge-ghost">GitHub
-                                Actions</span></div>
-                    </div>
-                    <div class="flex flex-wrap items-center gap-3">
-                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content min-w-[140px]"><i
-                               data-lucide="puzzle"
-                               aria-hidden="true"
-                               class="w-4 h-4 text-base-content/50"></i> Others </h3>
-                        <div class="flex flex-wrap gap-2"><span class="badge badge-ghost">HTML</span><span
-                                  class="badge badge-ghost">CSS</span><span
-                                  class="badge badge-ghost">TailwindCSS</span><span
-                                  class="badge badge-ghost">Bootstrap</span><span
-                                  class="badge badge-ghost">Kafka</span><span class="badge badge-ghost">ActiveMQ</span>
+                    <!-- Info -->
+                    <div class="flex-1 space-y-3">
+                        <div>
+                            <h1 class="text-3xl font-bold text-base-content">Irshad Sheikh</h1>
+                            <p class="text-base-content/70 text-lg mt-0.5">Senior Software Engineer</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section><!-- Professional Experience -->
-        <section>
-            <h2 class="text-xl font-semibold text-base-content mb-4 flex gap-2 items-center"><span
-                      class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0"><i
-                       data-lucide="layout-list"
-                       aria-hidden="true"
-                       class="w-5 h-5 text-accent"></i></span> Professional Experience </h2>
-            <div class="space-y-4"><!-- ASML -->
-                <div class="card bg-base-200 shadow-sm">
-                    <div class="card-body">
-                        <h3 class="font-semibold text-base-content">Senior Software Engineer – ASML</h3>
-                        <article class="flex flex-wrap gap-2"
-                                 aria-label="Work experience at ASML"><span class="badge badge-ghost gap-1"><i
-                                   data-lucide="building-2"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i> Luxoft </span><span class="badge badge-ghost gap-1"><i
-                                   data-lucide="map-pin"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i> Eindhoven, NL </span><span
-                                  class="badge badge-ghost gap-1"><i data-lucide="hourglass"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i><time datetime="2023-01">Jan 2023</time> – <time
-                                      datetime="now">Present</time></span></article>
-                        <ul class="space-y-1.5 mt-2">
-                            <li class="flex items-start gap-2 text-base-content/80"><i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i><span>Optimized document ingestion
-                                    system with WebClient & JVM tuning, reducing resource usage by ~20%.</span></li>
-                            <li class="flex items-start gap-2 text-base-content/80"><i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i><span>Built an API-based deployment
-                                    service with Spring Boot & Kubernetes Operator SDK.</span></li>
-                            <li class="flex items-start gap-2 text-base-content/80"><i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i><span>Developed React + Redux UI
-                                    feature for hardware labeling and live deployment tracking.</span></li>
-                            <li class="flex items-start gap-2 text-base-content/80"><i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i><span>Built Spring Boot +
-                                    Shell-based zero-downtime data migration solution.</span></li>
-                            <li class="flex items-start gap-2 text-base-content/80"><i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i><span>Contributed to production test
-                                    automation framework with Cucumber, Selenium & Rest Assured.</span></li>
-                        </ul>
-                    </div>
-                </div><!-- CIMB -->
-                <div class="card bg-base-200 shadow-sm">
-                    <div class="card-body">
-                        <h3 class="font-semibold text-base-content">Senior Software Engineer – CIMB Bank</h3>
-                        <article class="flex flex-wrap gap-2"
-                                 aria-label="Work experience at CIMB Bank"><span class="badge badge-ghost gap-1"><i
-                                   data-lucide="building-2"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i> Luxoft </span><span class="badge badge-ghost gap-1"><i
-                                   data-lucide="map-pin"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i> Bengaluru, IN </span><span
-                                  class="badge badge-ghost gap-1"><i data-lucide="hourglass"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i><time datetime="2021-02">Feb 2021</time> – <time
-                                      datetime="2023-01">Jan 2023</time></span></article>
-                        <ul class="space-y-1.5 mt-2">
-                            <li class="flex items-start gap-2 text-base-content/80"><i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i><span>Designed REST APIs with
-                                    HATEOAS for enhanced integration and discoverability.</span></li>
-                            <li class="flex items-start gap-2 text-base-content/80"><i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i><span>Integrated external APIs to
-                                    validate account eligibility.</span></li>
-                            <li class="flex items-start gap-2 text-base-content/80"><i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i><span>Built Angular-based stepper
-                                    interface for customer onboarding.</span></li>
-                            <li class="flex items-start gap-2 text-base-content/80"><i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i><span>Led LLD documentation and
-                                    team-level architecture planning.</span></li>
-                        </ul>
-                    </div>
-                </div><!-- Du Telecom -->
-                <div class="card bg-base-200 shadow-sm">
-                    <div class="card-body">
-                        <h3 class="font-semibold text-base-content">Senior Software Engineer – Du Telecom</h3>
-                        <article class="flex flex-wrap gap-2"
-                                 aria-label="Work experience at Du Telecom"><span class="badge badge-ghost gap-1"><i
-                                   data-lucide="building-2"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i> Phire Global </span><span class="badge badge-ghost gap-1"><i
-                                   data-lucide="map-pin"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i> Dubai, UAE </span><span class="badge badge-ghost gap-1"><i
-                                   data-lucide="hourglass"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i><time datetime="2019-04">Apr 2019</time> – <time
-                                      datetime="2021-02">Feb 2021</time></span></article>
-                        <ul class="space-y-1.5 mt-2">
-                            <li class="flex items-start gap-2 text-base-content/80"><i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i><span>Built Outlook plugin (Angular
-                                    + MS SDK) to streamline contract attachments.</span></li>
-                            <li class="flex items-start gap-2 text-base-content/80"><i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i><span>Implemented contract
-                                    versioning with Java & REST APIs for full audit trail.</span></li>
-                            <li class="flex items-start gap-2 text-base-content/80"><i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i><span>Collaborated with stakeholders
-                                    to align requirements and deliver POCs.</span></li>
-                        </ul>
-                    </div>
-                </div><!-- MetricStream - Internal Audits -->
-                <div class="card bg-base-200 shadow-sm">
-                    <div class="card-body">
-                        <h3 class="font-semibold text-base-content">Senior Member of Technical Staff – Internal Audits
-                        </h3>
-                        <article class="flex flex-wrap gap-2"
-                                 aria-label="Work experience at MetricStream"><span class="badge badge-ghost gap-1"><i
-                                   data-lucide="building-2"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i> MetricStream </span><span class="badge badge-ghost gap-1"><i
-                                   data-lucide="map-pin"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i> Bengaluru, IN </span><span
-                                  class="badge badge-ghost gap-1"><i data-lucide="hourglass"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i><time datetime="2018-04">Apr 2018</time> – <time
-                                      datetime="2019-04">Apr 2019</time></span></article>
-                        <ul class="space-y-1.5 mt-2">
-                            <li class="flex items-start gap-2 text-base-content/80"><i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i><span>Refactored legacy system with
-                                    Spring & JPA for long-term maintainability.</span></li>
-                            <li class="flex items-start gap-2 text-base-content/80"><i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i><span>Built configurable admin
-                                    report generator with SQL queries.</span></li>
-                        </ul>
-                    </div>
-                </div><!-- MetricStream - Zaplet -->
-                <div class="card bg-base-200 shadow-sm">
-                    <div class="card-body">
-                        <h3 class="font-semibold text-base-content">Member of Technical Staff – Zaplet Team</h3>
-                        <article class="flex flex-wrap gap-2"
-                                 aria-label="Work experience at MetricStream Zaplet"><span
-                                  class="badge badge-ghost gap-1"><i data-lucide="building-2"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i> MetricStream </span><span class="badge badge-ghost gap-1"><i
-                                   data-lucide="map-pin"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i> Bengaluru, IN </span><span
-                                  class="badge badge-ghost gap-1"><i data-lucide="hourglass"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i><time datetime="2015-04">Apr 2015</time> – <time
-                                      datetime="2018-04">Apr 2018</time></span></article>
-                        <ul class="space-y-1.5 mt-2">
-                            <li class="flex items-start gap-2 text-base-content/80"><i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i><span>Built on-demand demo features
-                                    to boost product adoption and sales.</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section><!-- Projects -->
-        <section class="card bg-base-200 shadow-sm">
-            <div class="card-body">
-                <h2 class="card-title text-lg"><span
-                          class="w-10 h-10 rounded-full bg-info/10 flex items-center justify-center shrink-0"><i
-                           data-lucide="puzzle"
-                           aria-hidden="true"
-                           class="w-5 h-5 text-info"></i></span> Projects </h2>
-                <div class="space-y-3 mt-2">
-                    <div class="flex items-start gap-2"><i data-lucide="external-link"
-                           aria-hidden="true"
-                           class="w-4 h-4 text-base-content/50 mt-0.5"></i>
-                        <div><a href="https://foozabayas.web.app"
-                               target="_blank"
-                               class="link link-primary font-medium">foozapp</a><span class="text-base-content/70"> —
-                                E-commerce store using Angular & Firebase. Features real-time updates and responsive
-                                UI.</span></div>
-                    </div>
-                    <div class="flex items-start gap-2"><i data-lucide="external-link"
-                           aria-hidden="true"
-                           class="w-4 h-4 text-base-content/50 mt-0.5"></i>
-                        <div><a href="https://www.initgrep.com"
-                               target="_blank"
-                               class="link link-primary font-medium">initgrep</a><span class="text-base-content/70"> —
-                                Tech blog built using Jekyll & Bootstrap with responsive layout and custom
-                                styling.</span></div>
-                    </div>
-                </div>
-            </div>
-        </section><!-- Education -->
-        <section class="card bg-base-200 shadow-sm">
-            <div class="card-body">
-                <h2 class="card-title text-lg"><span
-                          class="w-10 h-10 rounded-full bg-success/10 flex items-center justify-center shrink-0"><i
-                           data-lucide="graduation-cap"
-                           aria-hidden="true"
-                           class="w-5 h-5 text-success"></i></span> Education </h2>
-                <div class="space-y-4 mt-2">
-                    <div>
-                        <h3 class="font-semibold text-base-content">Master of Computer Applications</h3>
-                        <div class="flex flex-wrap gap-2 mt-1"><span class="badge badge-ghost gap-1"><i
-                                   data-lucide="university"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i> VTU </span><span class="badge badge-ghost gap-1"><i
-                                   data-lucide="hourglass"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i><time datetime="2010">2010</time> – <time
-                                      datetime="2013">2013</time></span><span class="badge badge-ghost gap-1"><i
-                                   data-lucide="map-pin"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i> Bengaluru, IN </span></div>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-base-content">Bachelor of Computer Applications</h3>
-                        <div class="flex flex-wrap gap-2 mt-1"><span class="badge badge-ghost gap-1"><i
-                                   data-lucide="university"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i> University of Kashmir </span><span
-                                  class="badge badge-ghost gap-1"><i data-lucide="hourglass"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i><time datetime="2006">2006</time> – <time
-                                      datetime="2009">2009</time></span><span class="badge badge-ghost gap-1"><i
-                                   data-lucide="map-pin"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5"></i> J&amp;K, IN </span></div>
+                        <!-- Meta chips -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="badge badge-ghost gap-1.5">
+                                <i data-lucide="map-pin" aria-hidden="true" class="w-3.5 h-3.5 text-primary"></i>
+                                Eindhoven, Netherlands
+                            </span>
+                            <a href="mailto:irshsheik@gmail.com" class="badge badge-ghost gap-1.5 hover:badge-primary transition-colors no-underline cursor-pointer">
+                                <i data-lucide="mail" aria-hidden="true" class="w-3.5 h-3.5"></i>
+                                irshsheik@gmail.com
+                            </a>
+                            <span class="badge badge-success gap-1.5">
+                                <i data-lucide="circle" aria-hidden="true" class="w-2.5 h-2.5 fill-current"></i>
+                                Available
+                            </span>
+                        </div>
+                        <!-- Social links -->
+                        <nav aria-label="Social links" class="flex flex-wrap gap-2">
+                            <a href="https://linkedin.com/in/irshsheik" target="_blank" rel="noopener" class="btn btn-outline btn-sm gap-2">
+                                <i data-lucide="linkedin" aria-hidden="true" class="w-4 h-4"></i> LinkedIn
+                            </a>
+                            <a href="https://github.com/irshsheik" target="_blank" rel="noopener" class="btn btn-outline btn-sm gap-2">
+                                <i data-lucide="github" aria-hidden="true" class="w-4 h-4"></i> GitHub
+                            </a>
+                            <a href="https://www.initgrep.com" target="_blank" rel="noopener" class="btn btn-outline btn-sm gap-2">
+                                <i data-lucide="rss" aria-hidden="true" class="w-4 h-4"></i> Blog
+                            </a>
+                        </nav>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Summary -->
+        <section class="card">
+            <div class="card-body">
+                <h2 class="card-title text-lg">
+                    <span class="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center shrink-0">
+                        <i data-lucide="user-round" aria-hidden="true" class="w-5 h-5 text-primary"></i>
+                    </span>
+                    About
+                </h2>
+                <p class="text-base-content/80">
+                    Experienced <strong class="text-base-content">Senior Software Engineer</strong> with 9+ years of
+                    expertise in designing scalable systems and solving complex algorithmic challenges. Strong in
+                    applying data structures to optimize performance and build resilient, user-centered solutions with
+                    modern technologies.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="card">
+            <div class="card-body">
+                <h2 class="card-title text-lg">
+                    <span class="w-10 h-10 rounded-full bg-secondary/15 flex items-center justify-center shrink-0">
+                        <i data-lucide="sparkles" aria-hidden="true" class="w-5 h-5 text-secondary"></i>
+                    </span>
+                    Skills
+                </h2>
+                <div class="space-y-4 mt-2">
+
+                    <div class="flex flex-wrap items-center gap-3">
+                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content min-w-[140px]">
+                            <i data-lucide="code-2" aria-hidden="true" class="w-4 h-4 text-primary"></i> Languages
+                        </h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="badge badge-primary badge-outline">Java</span>
+                            <span class="badge badge-primary badge-outline">JavaScript</span>
+                            <span class="badge badge-primary badge-outline">TypeScript</span>
+                            <span class="badge badge-primary badge-outline">Python</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-3">
+                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content min-w-[140px]">
+                            <i data-lucide="layers" aria-hidden="true" class="w-4 h-4 text-secondary"></i> Frameworks
+                        </h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="badge badge-secondary badge-outline">Spring Boot</span>
+                            <span class="badge badge-secondary badge-outline">JPA/Hibernate</span>
+                            <span class="badge badge-secondary badge-outline">React</span>
+                            <span class="badge badge-secondary badge-outline">Angular</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-3">
+                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content min-w-[140px]">
+                            <i data-lucide="cloud" aria-hidden="true" class="w-4 h-4 text-accent"></i> Cloud & DevOps
+                        </h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="badge badge-accent badge-outline">Docker</span>
+                            <span class="badge badge-accent badge-outline">Kubernetes</span>
+                            <span class="badge badge-accent badge-outline">Microservices</span>
+                            <span class="badge badge-accent badge-outline">Azure</span>
+                            <span class="badge badge-accent badge-outline">Prometheus</span>
+                            <span class="badge badge-accent badge-outline">Grafana</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-3">
+                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content min-w-[140px]">
+                            <i data-lucide="database" aria-hidden="true" class="w-4 h-4 text-info"></i> Databases
+                        </h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="badge badge-info badge-outline">MySQL</span>
+                            <span class="badge badge-info badge-outline">MongoDB</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-3">
+                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content min-w-[140px]">
+                            <i data-lucide="flask-conical" aria-hidden="true" class="w-4 h-4 text-success"></i> Testing
+                        </h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="badge badge-success badge-outline">JUnit</span>
+                            <span class="badge badge-success badge-outline">Mockito</span>
+                            <span class="badge badge-success badge-outline">Testcontainers</span>
+                            <span class="badge badge-success badge-outline">Cucumber</span>
+                            <span class="badge badge-success badge-outline">Cypress</span>
+                            <span class="badge badge-success badge-outline">Wiremock</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-3">
+                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content min-w-[140px]">
+                            <i data-lucide="git-branch" aria-hidden="true" class="w-4 h-4 text-warning"></i> CI/CD
+                        </h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="badge badge-warning badge-outline">Git</span>
+                            <span class="badge badge-warning badge-outline">Bitbucket</span>
+                            <span class="badge badge-warning badge-outline">Bamboo</span>
+                            <span class="badge badge-warning badge-outline">GitHub Actions</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-3">
+                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content min-w-[140px]">
+                            <i data-lucide="puzzle" aria-hidden="true" class="w-4 h-4 text-base-content/50"></i> Others
+                        </h3>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="badge badge-ghost">HTML</span>
+                            <span class="badge badge-ghost">CSS</span>
+                            <span class="badge badge-ghost">TailwindCSS</span>
+                            <span class="badge badge-ghost">Bootstrap</span>
+                            <span class="badge badge-ghost">Kafka</span>
+                            <span class="badge badge-ghost">ActiveMQ</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="card">
+            <div class="card-body">
+                <h2 class="card-title text-lg">
+                    <span class="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center shrink-0">
+                        <i data-lucide="briefcase" aria-hidden="true" class="w-5 h-5 text-accent"></i>
+                    </span>
+                    Professional Experience
+                </h2>
+                <div class="space-y-5 mt-2">
+
+                    <!-- ASML -->
+                    <div class="border-l-4 border-primary pl-4 space-y-2">
+                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+                            <div>
+                                <h3 class="font-semibold text-base-content">Senior Software Engineer</h3>
+                                <p class="text-sm text-base-content/60 flex items-center gap-1.5">
+                                    <i data-lucide="building-2" aria-hidden="true" class="w-3.5 h-3.5"></i>
+                                    ASML · via Luxoft · Eindhoven, NL
+                                </p>
+                            </div>
+                            <span class="badge badge-ghost gap-1 shrink-0 whitespace-nowrap self-start">
+                                <i data-lucide="calendar" aria-hidden="true" class="w-3 h-3"></i>
+                                <time datetime="2023-01">Jan 2023</time> – <time datetime="now">Present</time>
+                            </span>
+                        </div>
+                        <ul class="space-y-1.5">
+                            <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
+                                <span>Optimized document ingestion system with WebClient & JVM tuning, reducing resource usage by ~20%.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
+                                <span>Built an API-based deployment service with Spring Boot & Kubernetes Operator SDK.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
+                                <span>Developed React + Redux UI feature for hardware labeling and live deployment tracking.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
+                                <span>Built Spring Boot + Shell-based zero-downtime data migration solution.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
+                                <span>Contributed to production test automation framework with Cucumber, Selenium & Rest Assured.</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="badge badge-primary badge-xs">Spring Boot</span>
+                            <span class="badge badge-primary badge-xs">Kubernetes</span>
+                            <span class="badge badge-primary badge-xs">React</span>
+                            <span class="badge badge-primary badge-xs">Redux</span>
+                            <span class="badge badge-primary badge-xs">Cucumber</span>
+                            <span class="badge badge-primary badge-xs">Selenium</span>
+                        </div>
+                    </div>
+
+                    <!-- CIMB -->
+                    <div class="border-l-4 border-secondary pl-4 space-y-2">
+                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+                            <div>
+                                <h3 class="font-semibold text-base-content">Senior Software Engineer</h3>
+                                <p class="text-sm text-base-content/60 flex items-center gap-1.5">
+                                    <i data-lucide="building-2" aria-hidden="true" class="w-3.5 h-3.5"></i>
+                                    CIMB Bank · via Luxoft · Bengaluru, IN
+                                </p>
+                            </div>
+                            <span class="badge badge-ghost gap-1 shrink-0 whitespace-nowrap self-start">
+                                <i data-lucide="calendar" aria-hidden="true" class="w-3 h-3"></i>
+                                <time datetime="2021-02">Feb 2021</time> – <time datetime="2023-01">Jan 2023</time>
+                            </span>
+                        </div>
+                        <ul class="space-y-1.5">
+                            <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-secondary mt-0.5 shrink-0"></i>
+                                <span>Designed REST APIs with HATEOAS for enhanced integration and discoverability.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-secondary mt-0.5 shrink-0"></i>
+                                <span>Integrated external APIs to validate account eligibility.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-secondary mt-0.5 shrink-0"></i>
+                                <span>Built Angular-based stepper interface for customer onboarding.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-secondary mt-0.5 shrink-0"></i>
+                                <span>Led LLD documentation and team-level architecture planning.</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="badge badge-secondary badge-xs">Spring Boot</span>
+                            <span class="badge badge-secondary badge-xs">REST / HATEOAS</span>
+                            <span class="badge badge-secondary badge-xs">Angular</span>
+                        </div>
+                    </div>
+
+                    <!-- Du Telecom -->
+                    <div class="border-l-4 border-accent pl-4 space-y-2">
+                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+                            <div>
+                                <h3 class="font-semibold text-base-content">Senior Software Engineer</h3>
+                                <p class="text-sm text-base-content/60 flex items-center gap-1.5">
+                                    <i data-lucide="building-2" aria-hidden="true" class="w-3.5 h-3.5"></i>
+                                    Du Telecom · via Phire Global · Dubai, UAE
+                                </p>
+                            </div>
+                            <span class="badge badge-ghost gap-1 shrink-0 whitespace-nowrap self-start">
+                                <i data-lucide="calendar" aria-hidden="true" class="w-3 h-3"></i>
+                                <time datetime="2019-04">Apr 2019</time> – <time datetime="2021-02">Feb 2021</time>
+                            </span>
+                        </div>
+                        <ul class="space-y-1.5">
+                            <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-accent mt-0.5 shrink-0"></i>
+                                <span>Built Outlook plugin (Angular + MS SDK) to streamline contract attachments.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-accent mt-0.5 shrink-0"></i>
+                                <span>Implemented contract versioning with Java & REST APIs for full audit trail.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-accent mt-0.5 shrink-0"></i>
+                                <span>Collaborated with stakeholders to align requirements and deliver POCs.</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="badge badge-accent badge-xs">Java</span>
+                            <span class="badge badge-accent badge-xs">Angular</span>
+                            <span class="badge badge-accent badge-xs">REST APIs</span>
+                            <span class="badge badge-accent badge-xs">MS SDK</span>
+                        </div>
+                    </div>
+
+                    <!-- MetricStream — Senior -->
+                    <div class="border-l-4 border-info pl-4 space-y-2">
+                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+                            <div>
+                                <h3 class="font-semibold text-base-content">Senior Member of Technical Staff</h3>
+                                <p class="text-sm text-base-content/60 flex items-center gap-1.5">
+                                    <i data-lucide="building-2" aria-hidden="true" class="w-3.5 h-3.5"></i>
+                                    MetricStream · Internal Audits · Bengaluru, IN
+                                </p>
+                            </div>
+                            <span class="badge badge-ghost gap-1 shrink-0 whitespace-nowrap self-start">
+                                <i data-lucide="calendar" aria-hidden="true" class="w-3 h-3"></i>
+                                <time datetime="2018-04">Apr 2018</time> – <time datetime="2019-04">Apr 2019</time>
+                            </span>
+                        </div>
+                        <ul class="space-y-1.5">
+                            <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-info mt-0.5 shrink-0"></i>
+                                <span>Refactored legacy system with Spring & JPA for long-term maintainability.</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-info mt-0.5 shrink-0"></i>
+                                <span>Built configurable admin report generator with SQL queries.</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="badge badge-info badge-xs">Spring</span>
+                            <span class="badge badge-info badge-xs">JPA</span>
+                            <span class="badge badge-info badge-xs">SQL</span>
+                        </div>
+                    </div>
+
+                    <!-- MetricStream — Zaplet -->
+                    <div class="border-l-4 border-success pl-4 space-y-2">
+                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+                            <div>
+                                <h3 class="font-semibold text-base-content">Member of Technical Staff</h3>
+                                <p class="text-sm text-base-content/60 flex items-center gap-1.5">
+                                    <i data-lucide="building-2" aria-hidden="true" class="w-3.5 h-3.5"></i>
+                                    MetricStream · Zaplet Team · Bengaluru, IN
+                                </p>
+                            </div>
+                            <span class="badge badge-ghost gap-1 shrink-0 whitespace-nowrap self-start">
+                                <i data-lucide="calendar" aria-hidden="true" class="w-3 h-3"></i>
+                                <time datetime="2015-04">Apr 2015</time> – <time datetime="2018-04">Apr 2018</time>
+                            </span>
+                        </div>
+                        <ul class="space-y-1.5">
+                            <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-success mt-0.5 shrink-0"></i>
+                                <span>Built on-demand demo features to boost product adoption and sales.</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+                            <span class="badge badge-success badge-xs">Java</span>
+                            <span class="badge badge-success badge-xs">Spring</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="card">
+            <div class="card-body">
+                <h2 class="card-title text-lg">
+                    <span class="w-10 h-10 rounded-full bg-info/15 flex items-center justify-center shrink-0">
+                        <i data-lucide="rocket" aria-hidden="true" class="w-5 h-5 text-info"></i>
+                    </span>
+                    Projects
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
+
+                    <div class="card bg-base-100 border border-base-300 shadow-xs">
+                        <div class="card-body gap-2">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-semibold text-base-content">foozapp</h3>
+                                <a href="https://foozabayas.web.app" target="_blank" rel="noopener"
+                                   class="btn btn-ghost btn-xs btn-circle" aria-label="Visit foozapp">
+                                    <i data-lucide="external-link" aria-hidden="true" class="w-3.5 h-3.5"></i>
+                                </a>
+                            </div>
+                            <p class="text-sm text-base-content/70">E-commerce store with real-time updates and responsive UI.</p>
+                            <div class="flex flex-wrap gap-1 mt-1">
+                                <span class="badge badge-secondary badge-xs">Angular</span>
+                                <span class="badge badge-info badge-xs">Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-base-100 border border-base-300 shadow-xs">
+                        <div class="card-body gap-2">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-semibold text-base-content">initgrep</h3>
+                                <a href="https://www.initgrep.com" target="_blank" rel="noopener"
+                                   class="btn btn-ghost btn-xs btn-circle" aria-label="Visit initgrep">
+                                    <i data-lucide="external-link" aria-hidden="true" class="w-3.5 h-3.5"></i>
+                                </a>
+                            </div>
+                            <p class="text-sm text-base-content/70">Tech blog with responsive layout and custom styling.</p>
+                            <div class="flex flex-wrap gap-1 mt-1">
+                                <span class="badge badge-ghost badge-xs">Jekyll</span>
+                                <span class="badge badge-ghost badge-xs">Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="card">
+            <div class="card-body">
+                <h2 class="card-title text-lg">
+                    <span class="w-10 h-10 rounded-full bg-success/15 flex items-center justify-center shrink-0">
+                        <i data-lucide="graduation-cap" aria-hidden="true" class="w-5 h-5 text-success"></i>
+                    </span>
+                    Education
+                </h2>
+                <div class="space-y-4 mt-2">
+
+                    <div class="border-l-4 border-success pl-4 space-y-1">
+                        <h3 class="font-semibold text-base-content">Master of Computer Applications</h3>
+                        <p class="text-sm text-base-content/60">Visvesvaraya Technological University (VTU)</p>
+                        <div class="flex flex-wrap gap-1.5 mt-1">
+                            <span class="badge badge-ghost gap-1">
+                                <i data-lucide="map-pin" aria-hidden="true" class="w-3 h-3"></i> Bengaluru, IN
+                            </span>
+                            <span class="badge badge-ghost gap-1">
+                                <i data-lucide="calendar" aria-hidden="true" class="w-3 h-3"></i>
+                                <time datetime="2010">2010</time> – <time datetime="2013">2013</time>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="border-l-4 border-success pl-4 space-y-1">
+                        <h3 class="font-semibold text-base-content">Bachelor of Computer Applications</h3>
+                        <p class="text-sm text-base-content/60">University of Kashmir</p>
+                        <div class="flex flex-wrap gap-1.5 mt-1">
+                            <span class="badge badge-ghost gap-1">
+                                <i data-lucide="map-pin" aria-hidden="true" class="w-3 h-3"></i> J&amp;K, IN
+                            </span>
+                            <span class="badge badge-ghost gap-1">
+                                <i data-lucide="calendar" aria-hidden="true" class="w-3 h-3"></i>
+                                <time datetime="2006">2006</time> – <time datetime="2009">2009</time>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
     </main>
-    <footer class="text-center text-xs text-base-content/50 py-6 border-t border-base-200"> &copy; 2026 Irshad Sheikh.
-        All rights reserved. </footer><!-- Lucide Icons (loaded synchronously before init script) -->
-    <script src="https://unpkg.com/lucide@latest"></script><!-- Theme Toggle + Icon Init Script -->
-    <script> var THEMES = ['lofi', 'halloween', 'system']; var THEME_ICONS = { 'lofi': 'sun', 'halloween': 'moon', 'system': 'monitor' }; var THEME_COLORS = { 'lofi': '#ffffff', 'halloween': '#171212' }; function getSystemTheme() { return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'halloween' : 'lofi'; } function getEffectiveTheme(preference) { return preference === 'system' ? getSystemTheme() : preference; } function updateThemeIcon(preference) { var btn = document.getElementById('themeBtn'); if (!btn) return; var pref = preference || localStorage.getItem('theme') || 'system'; var iconName = THEME_ICONS[pref] || 'monitor'; var iconEl = btn.querySelector('svg, i'); if (iconEl) { var newIcon = document.createElement('i'); newIcon.setAttribute('data-lucide', iconName); newIcon.className = 'w-5 h-5'; iconEl.replaceWith(newIcon); lucide.createIcons({ nodes: [newIcon] }); } } function updateThemeColor() { var currentTheme = document.documentElement.getAttribute('data-theme') || 'lofi'; var color = THEME_COLORS[currentTheme] || '#ffffff'; var meta = document.querySelector('meta[name="theme-color"]'); if (meta) meta.setAttribute('content', color); } function setTheme(theme) { if (THEMES.indexOf(theme) === -1) theme = 'system'; localStorage.setItem('theme', theme); var effectiveTheme = getEffectiveTheme(theme); document.documentElement.setAttribute('data-theme', effectiveTheme); updateThemeColor(); updateThemeIcon(theme); } function toggleTheme() { var currentPref = localStorage.getItem('theme') || 'system'; var order = ['system', 'lofi', 'halloween']; var idx = order.indexOf(currentPref); var newTheme = order[(idx + 1) % order.length]; setTheme(newTheme); } function loadTheme() { var savedTheme = localStorage.getItem('theme'); var preference = (savedTheme && THEMES.indexOf(savedTheme) !== -1) ? savedTheme : 'system'; var effectiveTheme = getEffectiveTheme(preference); document.documentElement.setAttribute('data-theme', effectiveTheme); updateThemeColor(); updateThemeIcon(preference); } // Listen for system theme changes window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() { var pref = localStorage.getItem('theme') || 'system'; if (pref === 'system') { var effectiveTheme = getSystemTheme(); document.documentElement.setAttribute('data-theme', effectiveTheme); updateThemeColor(); } }); // Initialize: Lucide is loaded synchronously above, so it's available now lucide.createIcons(); loadTheme(); </script>
+
+    <footer class="text-center text-xs text-base-content/50 py-6 border-t border-base-200">
+        &copy; 2026 Irshad Sheikh. All rights reserved.
+    </footer>
+
+    <!-- Lucide Icons (loaded synchronously before init script) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Theme Toggle + Icon Init Script -->
+    <script>
+        var THEMES = ['lofi', 'halloween', 'system'];
+        var THEME_ICONS = { 'lofi': 'sun', 'halloween': 'moon', 'system': 'monitor' };
+        var THEME_COLORS = { 'lofi': '#ffffff', 'halloween': '#171212' };
+
+        function getSystemTheme() {
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'halloween' : 'lofi';
+        }
+        function getEffectiveTheme(preference) {
+            return preference === 'system' ? getSystemTheme() : preference;
+        }
+        function updateThemeIcon(preference) {
+            var btn = document.getElementById('themeBtn');
+            if (!btn) return;
+            var pref = preference || localStorage.getItem('theme') || 'system';
+            var iconName = THEME_ICONS[pref] || 'monitor';
+            var iconEl = btn.querySelector('svg, i');
+            if (iconEl) {
+                var newIcon = document.createElement('i');
+                newIcon.setAttribute('data-lucide', iconName);
+                newIcon.className = 'w-5 h-5';
+                iconEl.replaceWith(newIcon);
+                lucide.createIcons({ nodes: [newIcon] });
+            }
+        }
+        function updateThemeColor() {
+            var currentTheme = document.documentElement.getAttribute('data-theme') || 'lofi';
+            var color = THEME_COLORS[currentTheme] || '#ffffff';
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', color);
+        }
+        function setTheme(theme) {
+            if (THEMES.indexOf(theme) === -1) theme = 'system';
+            localStorage.setItem('theme', theme);
+            var effectiveTheme = getEffectiveTheme(theme);
+            document.documentElement.setAttribute('data-theme', effectiveTheme);
+            updateThemeColor();
+            updateThemeIcon(theme);
+        }
+        function toggleTheme() {
+            var currentPref = localStorage.getItem('theme') || 'system';
+            var order = ['system', 'lofi', 'halloween'];
+            var idx = order.indexOf(currentPref);
+            setTheme(order[(idx + 1) % order.length]);
+        }
+        function loadTheme() {
+            var savedTheme = localStorage.getItem('theme');
+            var preference = (savedTheme && THEMES.indexOf(savedTheme) !== -1) ? savedTheme : 'system';
+            var effectiveTheme = getEffectiveTheme(preference);
+            document.documentElement.setAttribute('data-theme', effectiveTheme);
+            updateThemeColor();
+            updateThemeIcon(preference);
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
+            var pref = localStorage.getItem('theme') || 'system';
+            if (pref === 'system') {
+                document.documentElement.setAttribute('data-theme', getSystemTheme());
+                updateThemeColor();
+            }
+        });
+
+        lucide.createIcons();
+        loadTheme();
+        window.addEventListener('load', function () { lucide.createIcons(); });
+    </script>
+
 </body>
 
 </html>
