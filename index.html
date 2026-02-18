@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-      data-theme="lofi">
+      data-theme="light">
 
 <head>
     <meta charset="UTF-8" />
@@ -12,6 +12,10 @@
     <!-- Structured Data -->
     <script
             type="application/ld+json">{ "@context": "http://schema.org", "@type": "Person", "name": "Irshad Sheikh", "email": "irshsheik@gmail.com", "address": { "@type": "PostalAddress", "addressLocality": "Eindhoven", "addressCountry": "Netherlands" }, "url": "https://linkedin.com/in/irshsheik", "jobTitle": "Senior Software Engineer" }</script>
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <!-- DaisyUI + Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5"
           rel="stylesheet"
@@ -29,6 +33,7 @@
     <style>
         html {
             scroll-behavior: smooth;
+            font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
         }
 
         html,
@@ -45,6 +50,14 @@
         footer,
         main {
             transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50%       { transform: translateY(-4px) scale(1.03); }
+        }
+        .avatar-breathe {
+            animation: breathe 4s ease-in-out infinite;
         }
 
         @media print {
@@ -96,7 +109,7 @@
         }
     </style>
     <!-- Theme initialization (prevent flash) -->
-    <script>(function () { var s = localStorage.getItem('theme') || 'system'; document.documentElement.setAttribute('data-theme', s === 'system' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'halloween' : 'lofi') : s); })();</script>
+    <script>(function () { var s = localStorage.getItem('theme') || 'system'; document.documentElement.setAttribute('data-theme', s === 'system' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'halloween' : 'light') : s); })();</script>
 </head>
 
 <body class="bg-base-100 text-base-content min-h-screen flex flex-col font-sans antialiased leading-relaxed">
@@ -141,9 +154,11 @@
                 <div class="flex flex-col sm:flex-row sm:items-start gap-5">
                     <!-- Avatar -->
                     <div class="shrink-0 no-print">
-                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Easton&flip=true"
-                             alt="Irshad Sheikh avatar"
-                             class="w-20 h-20 rounded-full" />
+                        <div class="w-24 h-24 rounded-full bg-warning/30 flex items-center justify-center">
+                            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Easton&flip=true"
+                                 alt="Irshad Sheikh avatar"
+                                 class="w-20 h-20 rounded-full avatar-breathe" />
+                        </div>
                     </div>
                     <!-- Info -->
                     <div class="flex-1 space-y-3">
@@ -244,8 +259,8 @@
         <!-- Skills -->
         <section class="card">
             <div class="card-body">
-                <h2 class="card-title text-lg">
-                    <span class="w-10 h-10 rounded-full bg-secondary/15 flex items-center justify-center shrink-0">
+                <h2 class="card-title text-xl">
+                    <span class="w-10 h-10 rounded-full bg-secondary/30 flex items-center justify-center shrink-0">
                         <i data-lucide="sparkles"
                            aria-hidden="true"
                            class="w-5 h-5 text-secondary"></i>
@@ -255,114 +270,114 @@
                 <div class="space-y-4 mt-2">
 
                     <div class="space-y-1.5">
-                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content">
+                        <h3 class="flex items-center gap-1.5 text-base font-semibold text-base-content">
                             <i data-lucide="code-2"
                                aria-hidden="true"
                                class="w-4 h-4 text-primary"></i> Languages
                         </h3>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="badge badge-primary badge-outline">Java</span>
-                            <span class="badge badge-primary badge-outline">JavaScript</span>
-                            <span class="badge badge-primary badge-outline">TypeScript</span>
-                            <span class="badge badge-primary badge-outline">Python</span>
+                            <span class="badge badge-soft  badge-outline">Java</span>
+                            <span class="badge badge-soft  badge-outline">JavaScript</span>
+                            <span class="badge badge-soft  badge-outline">TypeScript</span>
+                            <span class="badge badge-soft  badge-outline">Python</span>
                         </div>
                     </div>
 
                     <div class="space-y-1.5">
-                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content">
+                        <h3 class="flex items-center gap-1.5 text-base font-semibold text-base-content">
                             <i data-lucide="layers"
                                aria-hidden="true"
-                               class="w-4 h-4 text-secondary"></i> Frameworks
+                               class="w-4 h-4 text-primary"></i> Frameworks
                         </h3>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="badge badge-secondary badge-outline">Spring Boot</span>
-                            <span class="badge badge-secondary badge-outline">JPA/Hibernate</span>
-                            <span class="badge badge-secondary badge-outline">React</span>
-                            <span class="badge badge-secondary badge-outline">Angular</span>
+                            <span class="badge badge-soft  badge-outline">Spring Boot</span>
+                            <span class="badge badge-soft  badge-outline">JPA/Hibernate</span>
+                            <span class="badge badge-soft  badge-outline">React</span>
+                            <span class="badge badge-soft  badge-outline">Angular</span>
                         </div>
                     </div>
 
                     <div class="space-y-1.5">
-                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content">
+                        <h3 class="flex items-center gap-1.5 text-base font-semibold text-base-content">
                             <i data-lucide="cloud"
                                aria-hidden="true"
-                               class="w-4 h-4 text-accent"></i> Cloud & DevOps
+                               class="w-4 h-4 text-primary"></i> Cloud & DevOps
                         </h3>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="badge badge-accent badge-outline">Docker</span>
-                            <span class="badge badge-accent badge-outline">Kubernetes</span>
-                            <span class="badge badge-accent badge-outline">Microservices</span>
-                            <span class="badge badge-accent badge-outline">Azure</span>
-                            <span class="badge badge-accent badge-outline">Prometheus</span>
-                            <span class="badge badge-accent badge-outline">Grafana</span>
+                            <span class="badge badge-soft  badge-outline">Docker</span>
+                            <span class="badge badge-soft  badge-outline">Kubernetes</span>
+                            <span class="badge badge-soft  badge-outline">Microservices</span>
+                            <span class="badge badge-soft  badge-outline">Azure</span>
+                            <span class="badge badge-soft  badge-outline">Prometheus</span>
+                            <span class="badge badge-soft  badge-outline">Grafana</span>
                         </div>
                     </div>
 
                     <div class="space-y-1.5">
-                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content">
+                        <h3 class="flex items-center gap-1.5 text-base font-semibold text-base-content">
                             <i data-lucide="database"
                                aria-hidden="true"
-                               class="w-4 h-4 text-info"></i> Databases
+                               class="w-4 h-4 text-primary"></i> Databases
                         </h3>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="badge badge-info badge-outline">MySQL</span>
-                            <span class="badge badge-info badge-outline">MongoDB</span>
+                            <span class="badge badge-soft  badge-outline">MySQL</span>
+                            <span class="badge badge-soft  badge-outline">MongoDB</span>
                         </div>
                     </div>
 
                     <div class="space-y-1.5">
-                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content">
+                        <h3 class="flex items-center gap-1.5 text-base font-semibold text-base-content">
                             <i data-lucide="flask-conical"
                                aria-hidden="true"
-                               class="w-4 h-4 text-success"></i> Testing
+                               class="w-4 h-4 text-primary"></i> Testing
                         </h3>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="badge badge-success badge-outline">JUnit</span>
-                            <span class="badge badge-success badge-outline">Mockito</span>
-                            <span class="badge badge-success badge-outline">Testcontainers</span>
-                            <span class="badge badge-success badge-outline">Cucumber</span>
-                            <span class="badge badge-success badge-outline">Cypress</span>
-                            <span class="badge badge-success badge-outline">Wiremock</span>
+                            <span class="badge badge-soft  badge-outline">JUnit</span>
+                            <span class="badge badge-soft  badge-outline">Mockito</span>
+                            <span class="badge badge-soft  badge-outline">Testcontainers</span>
+                            <span class="badge badge-soft  badge-outline">Cucumber</span>
+                            <span class="badge badge-soft  badge-outline">Cypress</span>
+                            <span class="badge badge-soft  badge-outline">Wiremock</span>
                         </div>
                     </div>
 
                     <div class="space-y-1.5">
-                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content">
+                        <h3 class="flex items-center gap-1.5 text-base font-semibold text-base-content">
                             <i data-lucide="git-branch"
                                aria-hidden="true"
-                               class="w-4 h-4 text-warning"></i> CI/CD
+                               class="w-4 h-4 text-primary"></i> CI/CD
                         </h3>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="badge badge-warning badge-outline">Git</span>
-                            <span class="badge badge-warning badge-outline">Bitbucket</span>
-                            <span class="badge badge-warning badge-outline">Bamboo</span>
-                            <span class="badge badge-warning badge-outline">GitHub Actions</span>
+                            <span class="badge badge-soft  badge-outline">Git</span>
+                            <span class="badge badge-soft  badge-outline">Bitbucket</span>
+                            <span class="badge badge-soft  badge-outline">Bamboo</span>
+                            <span class="badge badge-soft  badge-outline">GitHub Actions</span>
                         </div>
                     </div>
 
                     <div class="space-y-1.5">
-                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content">
+                        <h3 class="flex items-center gap-1.5 text-base font-semibold text-base-content">
                             <i data-lucide="layout"
                                aria-hidden="true"
                                class="w-4 h-4 text-base-content/50"></i> Frontend
                         </h3>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="badge badge-ghost">HTML</span>
-                            <span class="badge badge-ghost">CSS</span>
-                            <span class="badge badge-ghost">TailwindCSS</span>
-                            <span class="badge badge-ghost">Bootstrap</span>
+                            <span class="badge badge-soft ">HTML</span>
+                            <span class="badge badge-soft ">CSS</span>
+                            <span class="badge badge-soft ">TailwindCSS</span>
+                            <span class="badge badge-soft ">Bootstrap</span>
                         </div>
                     </div>
 
                     <div class="space-y-1.5">
-                        <h3 class="flex items-center gap-1.5 text-sm font-semibold text-base-content">
+                        <h3 class="flex items-center gap-1.5 text-base font-semibold text-base-content">
                             <i data-lucide="zap"
                                aria-hidden="true"
                                class="w-4 h-4 text-base-content/50"></i> Messaging
                         </h3>
                         <div class="flex flex-wrap gap-1.5">
-                            <span class="badge badge-ghost">Kafka</span>
-                            <span class="badge badge-ghost">ActiveMQ</span>
+                            <span class="badge badge-soft ">Kafka</span>
+                            <span class="badge badge-soft ">ActiveMQ</span>
                         </div>
                     </div>
 
@@ -373,21 +388,21 @@
         <!-- Professional Experience -->
         <section class="card">
             <div class="card-body">
-                <h2 class="card-title text-lg">
-                    <span class="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center shrink-0">
+                <h2 class="card-title text-xl">
+                    <span class="w-10 h-10 rounded-full bg-primary/30 flex items-center justify-center shrink-0">
                         <i data-lucide="briefcase"
                            aria-hidden="true"
-                           class="w-5 h-5 text-accent"></i>
+                           class="w-5 h-5 text-primary"></i>
                     </span>
                     Professional Experience
                 </h2>
                 <div class="relative space-y-6 mt-2 ml-3">
                     <!-- Continuous vertical rail -->
-                    <div class="timeline-rail absolute left-0 top-3 bottom-3 w-px bg-base-300" aria-hidden="true"></div>
+                    <div class="timeline-rail absolute left-0 top-3 bottom-3 w-px bg-base-content/20" aria-hidden="true"></div>
 
                     <!-- ASML -->
                     <div class="relative pl-7 space-y-2">
-                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-primary ring-2 ring-primary/20 border-2 border-base-100" aria-hidden="true"></div>
+                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-primary ring-2 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
                         <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
                             <div>
                                 <div class="flex flex-wrap items-center gap-2">
@@ -445,18 +460,18 @@
                             </li>
                         </ul>
                         <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="badge badge-primary badge-xs">Spring Boot</span>
-                            <span class="badge badge-primary badge-xs">Kubernetes</span>
-                            <span class="badge badge-primary badge-xs">React</span>
-                            <span class="badge badge-primary badge-xs">Redux</span>
-                            <span class="badge badge-primary badge-xs">Cucumber</span>
-                            <span class="badge badge-primary badge-xs">Selenium</span>
+                            <span class="badge badge-soft  badge-xs">Spring Boot</span>
+                            <span class="badge badge-soft  badge-xs">Kubernetes</span>
+                            <span class="badge badge-soft  badge-xs">React</span>
+                            <span class="badge badge-soft  badge-xs">Redux</span>
+                            <span class="badge badge-soft  badge-xs">Cucumber</span>
+                            <span class="badge badge-soft  badge-xs">Selenium</span>
                         </div>
                     </div>
 
                     <!-- CIMB -->
                     <div class="relative pl-7 space-y-2">
-                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-secondary ring-2 ring-secondary/20 border-2 border-base-100" aria-hidden="true"></div>
+                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-3 h-3 rounded-full bg-primary ring-2 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
                         <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
                             <div>
                                 <div class="flex flex-wrap items-center gap-2">
@@ -481,39 +496,39 @@
                             <li class="flex items-start gap-2 text-sm text-base-content/80">
                                 <i data-lucide="chevron-right"
                                    aria-hidden="true"
-                                   class="w-4 h-4 text-secondary mt-0.5 shrink-0"></i>
+                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
                                 <span>Designed REST APIs with HATEOAS for enhanced integration and
                                     discoverability.</span>
                             </li>
                             <li class="flex items-start gap-2 text-sm text-base-content/80">
                                 <i data-lucide="chevron-right"
                                    aria-hidden="true"
-                                   class="w-4 h-4 text-secondary mt-0.5 shrink-0"></i>
+                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
                                 <span>Integrated external APIs to validate account eligibility.</span>
                             </li>
                             <li class="flex items-start gap-2 text-sm text-base-content/80">
                                 <i data-lucide="chevron-right"
                                    aria-hidden="true"
-                                   class="w-4 h-4 text-secondary mt-0.5 shrink-0"></i>
+                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
                                 <span>Built Angular-based stepper interface for customer onboarding.</span>
                             </li>
                             <li class="flex items-start gap-2 text-sm text-base-content/80">
                                 <i data-lucide="chevron-right"
                                    aria-hidden="true"
-                                   class="w-4 h-4 text-secondary mt-0.5 shrink-0"></i>
+                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
                                 <span>Led LLD documentation and team-level architecture planning.</span>
                             </li>
                         </ul>
                         <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="badge badge-secondary badge-xs">Spring Boot</span>
-                            <span class="badge badge-secondary badge-xs">REST / HATEOAS</span>
-                            <span class="badge badge-secondary badge-xs">Angular</span>
+                            <span class="badge badge-soft  badge-xs">Spring Boot</span>
+                            <span class="badge badge-soft  badge-xs">REST / HATEOAS</span>
+                            <span class="badge badge-soft  badge-xs">Angular</span>
                         </div>
                     </div>
 
                     <!-- Du Telecom -->
                     <div class="relative pl-7 space-y-2">
-                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-3 h-3 rounded-full bg-accent ring-2 ring-accent/20 border-2 border-base-100" aria-hidden="true"></div>
+                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-primary ring-1 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
                         <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
                             <div>
                                 <div class="flex flex-wrap items-center gap-2">
@@ -538,33 +553,33 @@
                             <li class="flex items-start gap-2 text-sm text-base-content/80">
                                 <i data-lucide="chevron-right"
                                    aria-hidden="true"
-                                   class="w-4 h-4 text-accent mt-0.5 shrink-0"></i>
+                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
                                 <span>Built Outlook plugin (Angular + MS SDK) to streamline contract attachments.</span>
                             </li>
                             <li class="flex items-start gap-2 text-sm text-base-content/80">
                                 <i data-lucide="chevron-right"
                                    aria-hidden="true"
-                                   class="w-4 h-4 text-accent mt-0.5 shrink-0"></i>
+                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
                                 <span>Implemented contract versioning with Java & REST APIs for full audit trail.</span>
                             </li>
                             <li class="flex items-start gap-2 text-sm text-base-content/80">
                                 <i data-lucide="chevron-right"
                                    aria-hidden="true"
-                                   class="w-4 h-4 text-accent mt-0.5 shrink-0"></i>
+                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
                                 <span>Collaborated with stakeholders to align requirements and deliver POCs.</span>
                             </li>
                         </ul>
                         <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="badge badge-accent badge-xs">Java</span>
-                            <span class="badge badge-accent badge-xs">Angular</span>
-                            <span class="badge badge-accent badge-xs">REST APIs</span>
-                            <span class="badge badge-accent badge-xs">MS SDK</span>
+                            <span class="badge badge-soft  badge-xs">Java</span>
+                            <span class="badge badge-soft  badge-xs">Angular</span>
+                            <span class="badge badge-soft  badge-xs">REST APIs</span>
+                            <span class="badge badge-soft  badge-xs">MS SDK</span>
                         </div>
                     </div>
 
                     <!-- MetricStream — Senior -->
                     <div class="relative pl-7 space-y-2">
-                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-3 h-3 rounded-full bg-info ring-2 ring-info/20 border-2 border-base-100" aria-hidden="true"></div>
+                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-primary ring-1 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
                         <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
                             <div>
                                 <h3 class="font-semibold text-base-content">MetricStream</h3>
@@ -586,26 +601,26 @@
                             <li class="flex items-start gap-2 text-sm text-base-content/80">
                                 <i data-lucide="chevron-right"
                                    aria-hidden="true"
-                                   class="w-4 h-4 text-info mt-0.5 shrink-0"></i>
+                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
                                 <span>Refactored legacy system with Spring & JPA for long-term maintainability.</span>
                             </li>
                             <li class="flex items-start gap-2 text-sm text-base-content/80">
                                 <i data-lucide="chevron-right"
                                    aria-hidden="true"
-                                   class="w-4 h-4 text-info mt-0.5 shrink-0"></i>
+                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
                                 <span>Built configurable admin report generator with SQL queries.</span>
                             </li>
                         </ul>
                         <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="badge badge-info badge-xs">Spring</span>
-                            <span class="badge badge-info badge-xs">JPA</span>
-                            <span class="badge badge-info badge-xs">SQL</span>
+                            <span class="badge badge-soft  badge-xs">Spring</span>
+                            <span class="badge badge-soft  badge-xs">JPA</span>
+                            <span class="badge badge-soft  badge-xs">SQL</span>
                         </div>
                     </div>
 
                     <!-- MetricStream — Zaplet (compact earlier entry) -->
                     <div class="relative pl-7 space-y-1 text-sm">
-                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-base-300 border-2 border-base-100" aria-hidden="true"></div>
+                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-2 h-2 rounded-full bg-primary/50 ring-1 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
                         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
                             <div>
                                 <span class="font-medium text-base-content">MetricStream</span>
@@ -628,11 +643,11 @@
         <!-- Writing & Projects -->
         <section class="card">
             <div class="card-body">
-                <h2 class="card-title text-lg">
-                    <span class="w-10 h-10 rounded-full bg-info/15 flex items-center justify-center shrink-0">
+                <h2 class="card-title text-xl">
+                    <span class="w-10 h-10 rounded-full bg-accent/30 flex items-center justify-center shrink-0">
                         <i data-lucide="pen-line"
                            aria-hidden="true"
-                           class="w-5 h-5 text-info"></i>
+                           class="w-5 h-5 text-accent"></i>
                     </span>
                     Writing & Projects
                 </h2>
@@ -643,7 +658,7 @@
                             <div class="flex items-start justify-between gap-2">
                                 <div>
                                     <h3 class="font-semibold text-base-content">initgrep.com</h3>
-                                    <span class="badge badge-info badge-xs mt-1">Tech Blog</span>
+                                    <span class="badge badge-soft  badge-xs mt-1">Tech Blog</span>
                                 </div>
                                 <a href="https://www.initgrep.com"
                                    target="_blank"
@@ -658,8 +673,8 @@
                             <p class="text-sm text-base-content/70">Technical writing on Java, Spring Boot, DevOps, and
                                 software engineering. 50+ in-depth articles.</p>
                             <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="badge badge-ghost badge-xs">Jekyll</span>
-                                <span class="badge badge-ghost badge-xs">Bootstrap</span>
+                                <span class="badge badge-soft  badge-xs">Jekyll</span>
+                                <span class="badge badge-soft  badge-xs">Bootstrap</span>
                             </div>
                         </div>
                     </div>
@@ -681,8 +696,8 @@
                             <p class="text-sm text-base-content/70">E-commerce store with real-time updates and
                                 responsive UI.</p>
                             <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="badge badge-secondary badge-xs">Angular</span>
-                                <span class="badge badge-info badge-xs">Firebase</span>
+                                <span class="badge badge-soft  badge-xs">Angular</span>
+                                <span class="badge badge-soft  badge-xs">Firebase</span>
                             </div>
                         </div>
                     </div>
@@ -694,21 +709,21 @@
         <!-- Education -->
         <section class="card">
             <div class="card-body">
-                <h2 class="card-title text-lg">
-                    <span class="w-10 h-10 rounded-full bg-success/15 flex items-center justify-center shrink-0">
+                <h2 class="card-title text-xl">
+                    <span class="w-10 h-10 rounded-full bg-success/30 flex items-center justify-center shrink-0">
                         <i data-lucide="graduation-cap"
                            aria-hidden="true"
                            class="w-5 h-5 text-success"></i>
                     </span>
                     Education
                 </h2>
-                <div class="space-y-3 mt-2 text-sm">
+                <div class="space-y-3 mt-2">
 
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5">
                         <div>
                             <span class="font-medium text-base-content">Master of Computer Applications</span>
-                            <span class="text-base-content/40 mx-1.5">·</span>
-                            <span class="text-base-content/60">Visvesvaraya Technological University (VTU) · Bengaluru,
+                            <span class="text-base-content/40 mx-1.5 text-sm">·</span>
+                            <span class="text-sm text-base-content/60">Visvesvaraya Technological University (VTU) · Bengaluru,
                                 IN</span>
                         </div>
                         <span class="text-xs text-base-content/50 shrink-0 whitespace-nowrap">
@@ -719,8 +734,8 @@
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5">
                         <div>
                             <span class="font-medium text-base-content">Bachelor of Computer Applications</span>
-                            <span class="text-base-content/40 mx-1.5">·</span>
-                            <span class="text-base-content/60">University of Kashmir · J&amp;K, IN</span>
+                            <span class="text-base-content/40 mx-1.5 text-sm">·</span>
+                            <span class="text-sm text-base-content/60">University of Kashmir · J&amp;K, IN</span>
                         </div>
                         <span class="text-xs text-base-content/50 shrink-0 whitespace-nowrap">
                             <time datetime="2006">2006</time> – <time datetime="2009">2009</time>
@@ -741,12 +756,12 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Theme Toggle + Icon Init Script -->
     <script>
-        var THEMES = ['lofi', 'halloween', 'system'];
-        var THEME_ICONS = { 'lofi': 'sun', 'halloween': 'moon', 'system': 'monitor' };
-        var THEME_COLORS = { 'lofi': '#ffffff', 'halloween': '#171212' };
+        var THEMES = ['light', 'halloween', 'system'];
+        var THEME_ICONS = { 'light': 'sun', 'halloween': 'moon', 'system': 'monitor' };
+        var THEME_COLORS = { 'light': '#ffffff', 'halloween': '#171212' };
 
         function getSystemTheme() {
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'halloween' : 'lofi';
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'halloween' : 'light';
         }
         function getEffectiveTheme(preference) {
             return preference === 'system' ? getSystemTheme() : preference;
@@ -766,7 +781,7 @@
             }
         }
         function updateThemeColor() {
-            var currentTheme = document.documentElement.getAttribute('data-theme') || 'lofi';
+            var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
             var color = THEME_COLORS[currentTheme] || '#ffffff';
             var meta = document.querySelector('meta[name="theme-color"]');
             if (meta) meta.setAttribute('content', color);
@@ -781,7 +796,7 @@
         }
         function toggleTheme() {
             var currentPref = localStorage.getItem('theme') || 'system';
-            var order = ['system', 'lofi', 'halloween'];
+            var order = ['system', 'light', 'halloween'];
             var idx = order.indexOf(currentPref);
             setTheme(order[(idx + 1) % order.length]);
         }
