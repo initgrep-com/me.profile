@@ -7,7 +7,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0" />
     <meta name="description"
-          content="Irshad Sheikh's Resume – Senior Software Engineer with 9+ years of experience in Java, Spring, React, and DevOps. Based in Eindhoven, Netherlands.">
+          content="Irshad Sheikh's Resume – Senior Software Engineer with 10+ years of experience in Java, Spring, React, and DevOps. Based in Eindhoven, Netherlands.">
     <title>Irshad Sheikh – Resume</title>
     <!-- Structured Data -->
     <script
@@ -61,50 +61,139 @@
         }
 
         @media print {
-
-            :root,
-            [data-theme] {
-                --color-base-100: #ffffff !important;
-                --color-base-200: #f5f5f5 !important;
-                --color-base-content: #000000 !important;
-                color-scheme: light !important;
-            }
-
+            /* ── Hide everything except the ATS resume ── */
             header,
             footer,
-            #themeBtn,
-            #printBtn,
-            [download],
-            .no-print {
+            main {
                 display: none !important;
             }
 
-            * {
-                transition: none !important;
-                box-shadow: none !important;
+            #ats-resume {
+                display: block !important;
             }
 
-            .card {
-                break-inside: avoid;
-                border: 1px solid #e0e0e0;
-                margin-bottom: 0.5rem;
-            }
-
-            main {
-                max-width: 100% !important;
-                padding: 0 !important;
+            /* ── Page setup ── */
+            @page {
+                margin: 1.8cm 1.5cm;
+                size: A4;
             }
 
             body {
-                font-size: 11pt;
+                font-family: 'Inter', Arial, sans-serif;
+                font-size: 10.5pt;
+                line-height: 1.45;
+                color: #000;
+                background: #fff;
             }
 
-            .timeline-dot {
-                background-color: #555 !important;
-                border-color: #fff !important;
+            /* ── Name & title ── */
+            #ats-resume h1 {
+                font-size: 20pt;
+                font-weight: 700;
+                margin: 0 0 2pt 0;
+                letter-spacing: -0.3pt;
             }
-            .timeline-rail {
-                background-color: #ccc !important;
+            #ats-resume .ats-subtitle {
+                font-size: 11.5pt;
+                color: #333;
+                margin: 0 0 4pt 0;
+            }
+            #ats-resume .ats-contact {
+                font-size: 9.5pt;
+                color: #222;
+                margin: 0 0 3pt 0;
+            }
+            #ats-resume .ats-meta {
+                font-size: 9pt;
+                color: #444;
+                margin: 0 0 10pt 0;
+            }
+
+            /* ── Section headings ── */
+            #ats-resume h2 {
+                font-size: 11pt;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.6pt;
+                border-bottom: 1.5px solid #000;
+                margin: 14pt 0 5pt 0;
+                padding-bottom: 2pt;
+            }
+
+            /* ── Skills table ── */
+            #ats-resume .ats-skills {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 9.5pt;
+            }
+            #ats-resume .ats-skills td {
+                padding: 2pt 6pt 2pt 0;
+                vertical-align: top;
+            }
+            #ats-resume .ats-skills td:first-child {
+                font-weight: 600;
+                white-space: nowrap;
+                width: 22%;
+                color: #333;
+            }
+
+            /* ── Experience entries ── */
+            #ats-resume .ats-job {
+                margin-bottom: 9pt;
+                break-inside: avoid;
+            }
+            #ats-resume .ats-job-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                gap: 8pt;
+            }
+            #ats-resume .ats-job-title {
+                font-weight: 700;
+                font-size: 10.5pt;
+            }
+            #ats-resume .ats-job-date {
+                font-size: 9.5pt;
+                color: #333;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+            #ats-resume .ats-job-meta {
+                font-size: 9.5pt;
+                color: #444;
+                margin: 1pt 0 3pt 0;
+            }
+            #ats-resume ul {
+                margin: 3pt 0 3pt 14pt;
+                padding: 0;
+            }
+            #ats-resume li {
+                font-size: 9.5pt;
+                margin-bottom: 1.5pt;
+                color: #111;
+            }
+            #ats-resume .ats-job-tags {
+                font-size: 8.5pt;
+                color: #555;
+                margin-top: 2pt;
+            }
+
+            /* ── Education ── */
+            #ats-resume .ats-edu {
+                display: flex;
+                justify-content: space-between;
+                font-size: 9.5pt;
+                margin-bottom: 4pt;
+            }
+            #ats-resume .ats-edu-date {
+                color: #444;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
     </style>
@@ -119,21 +208,13 @@
         <div class="flex items-center justify-end px-4 py-2 max-w-4xl mx-auto w-full gap-2">
             <button id="printBtn"
                     onclick="window.print()"
-                    class="btn btn-ghost btn-sm gap-2"
-                    aria-label="Print resume">
-                <i data-lucide="printer"
+                    class="btn btn-primary btn-sm gap-2"
+                    aria-label="Save resume as PDF">
+                <i data-lucide="file-down"
                    aria-hidden="true"
                    class="w-4 h-4"></i>
-                <span class="hidden sm:inline text-sm">Print</span>
+                <span class="hidden sm:inline text-sm">Save as PDF</span>
             </button>
-            <a href="irshad-sheikh_cv.pdf"
-               download
-               class="btn btn-primary btn-sm gap-2">
-                <i data-lucide="download"
-                   aria-hidden="true"
-                   class="w-4 h-4"></i>
-                <span class="hidden sm:inline text-sm">Download PDF</span>
-            </a>
             <button onclick="toggleTheme()"
                     class="btn btn-ghost btn-circle btn-sm"
                     id="themeBtn"
@@ -180,31 +261,7 @@
                                 <i data-lucide="clock"
                                    aria-hidden="true"
                                    class="w-3.5 h-3.5 text-primary"></i>
-                                9+ yrs experience
-                            </span>
-                            <span class="text-base-content/30"
-                                  aria-hidden="true">·</span>
-                            <span class="flex items-center gap-1.5">
-                                <i data-lucide="building-2"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5 text-primary"></i>
-                                5 companies
-                            </span>
-                            <span class="text-base-content/30"
-                                  aria-hidden="true">·</span>
-                            <span class="flex items-center gap-1.5">
-                                <i data-lucide="globe"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5 text-primary"></i>
-                                3 countries
-                            </span>
-                            <span class="text-base-content/30"
-                                  aria-hidden="true">·</span>
-                            <span class="flex items-center gap-1.5">
-                                <i data-lucide="shield-check"
-                                   aria-hidden="true"
-                                   class="w-3.5 h-3.5 text-primary"></i>
-                                NL work permit
+                                <span id="yrs-web">9+</span> yrs experience
                             </span>
                         </div>
                         <!-- Meta chips -->
@@ -640,72 +697,6 @@
             </div>
         </section>
 
-        <!-- Writing & Projects -->
-        <section class="card">
-            <div class="card-body">
-                <h2 class="card-title text-xl">
-                    <span class="w-10 h-10 rounded-full bg-accent/30 flex items-center justify-center shrink-0">
-                        <i data-lucide="pen-line"
-                           aria-hidden="true"
-                           class="w-5 h-5 text-accent"></i>
-                    </span>
-                    Writing & Projects
-                </h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-
-                    <div class="card">
-                        <div class="card-body gap-2">
-                            <div class="flex items-start justify-between gap-2">
-                                <div>
-                                    <h3 class="font-semibold text-base-content">initgrep.com</h3>
-                                    <span class="badge badge-soft  badge-xs mt-1">Tech Blog</span>
-                                </div>
-                                <a href="https://www.initgrep.com"
-                                   target="_blank"
-                                   rel="noopener"
-                                   class="btn btn-ghost btn-xs btn-circle shrink-0"
-                                   aria-label="Visit initgrep">
-                                    <i data-lucide="external-link"
-                                       aria-hidden="true"
-                                       class="w-3.5 h-3.5"></i>
-                                </a>
-                            </div>
-                            <p class="text-sm text-base-content/70">Technical writing on Java, Spring Boot, DevOps, and
-                                software engineering. 50+ in-depth articles.</p>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="badge badge-soft  badge-xs">Jekyll</span>
-                                <span class="badge badge-soft  badge-xs">Bootstrap</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card-body gap-2">
-                            <div class="flex items-center justify-between">
-                                <h3 class="font-semibold text-base-content">foozapp</h3>
-                                <a href="https://foozabayas.web.app"
-                                   target="_blank"
-                                   rel="noopener"
-                                   class="btn btn-ghost btn-xs btn-circle"
-                                   aria-label="Visit foozapp">
-                                    <i data-lucide="external-link"
-                                       aria-hidden="true"
-                                       class="w-3.5 h-3.5"></i>
-                                </a>
-                            </div>
-                            <p class="text-sm text-base-content/70">E-commerce store with real-time updates and
-                                responsive UI.</p>
-                            <div class="flex flex-wrap gap-1 mt-1">
-                                <span class="badge badge-soft  badge-xs">Angular</span>
-                                <span class="badge badge-soft  badge-xs">Firebase</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
         <!-- Education -->
         <section class="card">
             <div class="card-body">
@@ -751,6 +742,152 @@
     <footer class="text-center text-xs text-base-content/50 py-6 border-t border-base-200">
         &copy; 2026 Irshad Sheikh. All rights reserved.
     </footer>
+
+    <!-- ═══════════════════════════════════════════════════════
+         ATS-READY PRINT RESUME — hidden on screen, shown on print
+         ═══════════════════════════════════════════════════════ -->
+    <div id="ats-resume" style="display:none">
+
+        <!-- Header -->
+        <h1>Irshad Sheikh</h1>
+        <p class="ats-subtitle">Senior Software Engineer &nbsp;&mdash;&nbsp; <span id="yrs-ats">9+</span> years experience</p>
+        <p class="ats-contact">
+            Eindhoven, Netherlands &nbsp;|&nbsp;
+            irshsheik@gmail.com &nbsp;|&nbsp;
+            linkedin.com/in/irshsheik &nbsp;|&nbsp;
+            initgrep.com
+        </p>
+
+        <!-- Skills -->
+        <h2>Skills</h2>
+        <table class="ats-skills">
+            <tr>
+                <td>Languages</td>
+                <td>Java, JavaScript, TypeScript, Python</td>
+            </tr>
+            <tr>
+                <td>Frameworks</td>
+                <td>Spring Boot, JPA/Hibernate, React, Angular</td>
+            </tr>
+            <tr>
+                <td>Cloud &amp; DevOps</td>
+                <td>Docker, Kubernetes, Microservices, Azure, Prometheus, Grafana</td>
+            </tr>
+            <tr>
+                <td>Databases</td>
+                <td>MySQL, MongoDB</td>
+            </tr>
+            <tr>
+                <td>Testing</td>
+                <td>JUnit, Mockito, Testcontainers, Cucumber, Cypress, Wiremock</td>
+            </tr>
+            <tr>
+                <td>CI/CD</td>
+                <td>Git, Bitbucket, Bamboo, GitHub Actions</td>
+            </tr>
+            <tr>
+                <td>Frontend</td>
+                <td>HTML, CSS, TailwindCSS, Bootstrap</td>
+            </tr>
+            <tr>
+                <td>Messaging</td>
+                <td>Kafka, ActiveMQ</td>
+            </tr>
+        </table>
+
+        <!-- Experience -->
+        <h2>Professional Experience</h2>
+
+        <div class="ats-job">
+            <div class="ats-job-header">
+                <span class="ats-job-title">ASML &mdash; Senior Software Engineer</span>
+                <span class="ats-job-date">Jan 2023 &ndash; Present</span>
+            </div>
+            <p class="ats-job-meta">Eindhoven, Netherlands &nbsp;(Consultant via Luxoft)</p>
+            <ul>
+                <li>Optimized document ingestion system with WebClient &amp; JVM tuning, reducing resource usage by ~20%.</li>
+                <li>Built an API-based deployment service with Spring Boot &amp; Kubernetes Operator SDK.</li>
+                <li>Developed React + Redux UI feature for hardware labeling and live deployment tracking.</li>
+                <li>Built Spring Boot + Shell-based zero-downtime data migration solution.</li>
+                <li>Contributed to production test automation framework with Cucumber, Selenium &amp; Rest Assured.</li>
+            </ul>
+            <p class="ats-job-tags">Spring Boot, Kubernetes, React, Redux, Cucumber, Selenium</p>
+        </div>
+
+        <div class="ats-job">
+            <div class="ats-job-header">
+                <span class="ats-job-title">CIMB Bank &mdash; Senior Software Engineer</span>
+                <span class="ats-job-date">Feb 2021 &ndash; Jan 2023</span>
+            </div>
+            <p class="ats-job-meta">Bengaluru, India &nbsp;(Consultant via Luxoft)</p>
+            <ul>
+                <li>Designed REST APIs with HATEOAS for enhanced integration and discoverability.</li>
+                <li>Integrated external APIs to validate account eligibility.</li>
+                <li>Built Angular-based stepper interface for customer onboarding.</li>
+                <li>Led LLD documentation and team-level architecture planning.</li>
+            </ul>
+            <p class="ats-job-tags">Spring Boot, REST / HATEOAS, Angular</p>
+        </div>
+
+        <div class="ats-job">
+            <div class="ats-job-header">
+                <span class="ats-job-title">Du Telecom &mdash; Senior Software Engineer</span>
+                <span class="ats-job-date">Apr 2019 &ndash; Feb 2021</span>
+            </div>
+            <p class="ats-job-meta">Dubai, UAE &nbsp;(Consultant via Phire Global)</p>
+            <ul>
+                <li>Built Outlook plugin (Angular + MS SDK) to streamline contract attachments.</li>
+                <li>Implemented contract versioning with Java &amp; REST APIs for full audit trail.</li>
+                <li>Collaborated with stakeholders to align requirements and deliver POCs.</li>
+            </ul>
+            <p class="ats-job-tags">Java, Angular, REST APIs, MS SDK</p>
+        </div>
+
+        <div class="ats-job">
+            <div class="ats-job-header">
+                <span class="ats-job-title">MetricStream &mdash; Senior Member of Technical Staff</span>
+                <span class="ats-job-date">Apr 2018 &ndash; Apr 2019</span>
+            </div>
+            <p class="ats-job-meta">Bengaluru, India</p>
+            <ul>
+                <li>Refactored legacy system with Spring &amp; JPA for long-term maintainability.</li>
+                <li>Built configurable admin report generator with SQL queries.</li>
+            </ul>
+            <p class="ats-job-tags">Spring, JPA, SQL</p>
+        </div>
+
+        <div class="ats-job">
+            <div class="ats-job-header">
+                <span class="ats-job-title">MetricStream &mdash; Member of Technical Staff</span>
+                <span class="ats-job-date">Apr 2015 &ndash; Apr 2018</span>
+            </div>
+            <p class="ats-job-meta">Bengaluru, India &nbsp;(Zaplet Team)</p>
+            <ul>
+                <li>Built on-demand demo features to boost product adoption and sales.</li>
+            </ul>
+        </div>
+
+        <!-- Education -->
+        <h2>Education</h2>
+
+        <div class="ats-edu">
+            <div>
+                <strong>Master of Computer Applications</strong> &nbsp;&mdash;&nbsp;
+                Visvesvaraya Technological University (VTU), Bengaluru, India
+            </div>
+            <span class="ats-edu-date">2010 &ndash; 2013</span>
+        </div>
+
+        <div class="ats-edu">
+            <div>
+                <strong>Bachelor of Computer Applications</strong> &nbsp;&mdash;&nbsp;
+                University of Kashmir, J&amp;K, India
+            </div>
+            <span class="ats-edu-date">2006 &ndash; 2009</span>
+        </div>
+
+    </div>
+    <!-- ── end #ats-resume ── -->
 
     <!-- Lucide Icons (loaded synchronously before init script) -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -820,6 +957,16 @@
         lucide.createIcons();
         loadTheme();
         window.addEventListener('load', function () { lucide.createIcons(); });
+
+        // Dynamic years of experience
+        (function () {
+            var yrs = new Date().getFullYear() - 2015;
+            var label = yrs + '+';
+            var web = document.getElementById('yrs-web');
+            var ats = document.getElementById('yrs-ats');
+            if (web) web.textContent = label;
+            if (ats) ats.textContent = label;
+        })();
     </script>
 
 </body>
