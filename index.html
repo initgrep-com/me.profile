@@ -78,12 +78,20 @@
                 size: A4;
             }
 
+            /* ── Force light theme regardless of active DaisyUI theme ── */
+            html {
+                color-scheme: light !important;
+                background: #fff !important;
+                color: #000 !important;
+            }
+
             body {
                 font-family: 'Inter', Arial, sans-serif;
                 font-size: 10.5pt;
                 line-height: 1.45;
-                color: #000;
-                background: #fff;
+                color: #000 !important;
+                background: #fff !important;
+                color-scheme: light !important;
             }
 
             /* ── Name & title ── */
