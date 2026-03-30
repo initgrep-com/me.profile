@@ -7,7 +7,7 @@ Static personal resume for Irshad Sheikh, deployed at [me.initgrep.com](https://
 | File | Purpose |
 |------|---------|
 | `data.yaml` | All resume content — **edit this to change data** |
-| `resume.schema.json` | JSON Schema for `data.yaml` (validation + editor autocomplete) |
+| `data.schema.json` | JSON Schema for `data.yaml` (validation + editor autocomplete) |
 | `templates/base.html` | Jinja2 HTML template — **edit this for layout/style changes** |
 | `build.py` | Reads YAML + template, writes `index.html` |
 | `index.html` | Generated output (committed, served by GH Pages) — **do not edit directly** |

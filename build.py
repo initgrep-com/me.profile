@@ -28,7 +28,7 @@ def main():
     data = yaml.safe_load((ROOT / "data.yaml").read_text())
 
     # Validate against schema
-    schema = json.loads((ROOT / "resume.schema.json").read_text())
+    schema = json.loads((ROOT / "data.schema.json").read_text())
     try:
         validate(instance=data, schema=schema)
     except ValidationError as e:
