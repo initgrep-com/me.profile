@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en"
+      data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+          content="{{ meta.name }}'s Resume – {{ meta.title }} with 10+ years of experience in Java, Spring, React, and DevOps. Based in {{ meta.location }}.">
+    <title>{{ meta.name }} – Resume</title>
+    <!-- Structured Data -->
+    <script
+            type="application/ld+json">{ "@context": "http://schema.org", "@type": "Person", "name": "{{ meta.name }}", "email": "{{ meta.email }}", "address": { "@type": "PostalAddress", "addressLocality": "{{ meta.location.split(', ')[0] }}", "addressCountry": "{{ meta.location.split(', ')[-1] }}" }, "url": "{{ meta.links.linkedin }}", "jobTitle": "{{ meta.title }}" }</script>
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- DaisyUI + Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5"
+          rel="stylesheet"
+          type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css"
+          rel="stylesheet"
+          type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Favicon -->
+    <link rel="icon"
+          type="image/svg+xml"
+          href="fav.svg" />
+    <meta name="theme-color"
+          content="#ffffff">
+    <style>
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+        }
+
+        html,
+        body,
+        .bg-base-100,
+        .bg-base-200,
+        .bg-base-300,
+        .text-base-content,
+        .text-primary,
+        .card,
+        .btn,
+        .badge,
+        header,
+        footer,
+        main {
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50%       { transform: translateY(-4px) scale(1.03); }
+        }
+        .avatar-breathe {
+            animation: breathe 4s ease-in-out infinite;
+        }
+
+        /* Hide ATS resume on screen using positioning (not display:none)
+           so Safari's print engine can still calculate full layout */
+        #ats-resume {
+            position: fixed;
+            left: -99999px;
+            top: 0;
+            visibility: hidden;
+        }
+
+        /* Hide education on web — only shown in ATS print resume */
+        #education-web {
+            display: none;
+        }
+
+        @media print {
+            /* ── Hide everything except the ATS resume ── */
+            header,
+            footer,
+            main {
+                display: none !important;
+            }
+
+            #ats-resume {
+                position: static !important;
+                visibility: visible !important;
+                display: block !important;
+            }
+
+            /* ── Page setup ── */
+            @page {
+                margin: 1.5cm 1.3cm;
+                size: A4;
+            }
+
+            /* ── Force light theme regardless of active DaisyUI theme ── */
+            html {
+                color-scheme: light !important;
+                background: #fff !important;
+                color: #000 !important;
+            }
+
+            body {
+                font-family: 'Inter', Arial, sans-serif;
+                font-size: 10.5pt;
+                line-height: 1.35;
+                color: #000 !important;
+                background: #fff !important;
+                color-scheme: light !important;
+            }
+
+            /* ── Name & title ── */
+            #ats-resume h1 {
+                font-size: 18pt;
+                font-weight: 700;
+                margin: 0 0 2pt 0;
+                letter-spacing: -0.3pt;
+            }
+            #ats-resume .ats-subtitle {
+                font-size: 11.5pt;
+                color: #333;
+                margin: 0 0 4pt 0;
+            }
+            #ats-resume .ats-contact {
+                font-size: 9.5pt;
+                color: #222;
+                margin: 0 0 3pt 0;
+            }
+            #ats-resume .ats-meta {
+                font-size: 9pt;
+                color: #444;
+                margin: 0 0 10pt 0;
+            }
+
+            /* ── Section headings ── */
+            #ats-resume h2 {
+                font-size: 11pt;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.6pt;
+                border-bottom: 1.5px solid #000;
+                margin: 10pt 0 4pt 0;
+                padding-bottom: 2pt;
+            }
+
+            /* ── Skills table ── */
+            #ats-resume .ats-skills {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 9.5pt;
+            }
+            #ats-resume .ats-skills td {
+                padding: 2pt 6pt 2pt 0;
+                vertical-align: top;
+            }
+            #ats-resume .ats-skills td:first-child {
+                font-weight: 600;
+                white-space: nowrap;
+                width: 22%;
+                color: #333;
+            }
+
+            /* ── Experience entries ── */
+            #ats-resume .ats-job {
+                margin-bottom: 6pt;
+                break-inside: avoid;
+            }
+            #ats-resume .ats-job-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                gap: 8pt;
+            }
+            #ats-resume .ats-job-title {
+                font-weight: 700;
+                font-size: 10.5pt;
+            }
+            #ats-resume .ats-job-date {
+                font-size: 9.5pt;
+                color: #333;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+            #ats-resume .ats-job-meta {
+                font-size: 9.5pt;
+                color: #444;
+                margin: 1pt 0 3pt 0;
+            }
+            #ats-resume ul {
+                margin: 2pt 0 2pt 12pt;
+                padding: 0;
+                list-style-type: disc;
+            }
+            #ats-resume li {
+                font-size: 9.5pt;
+                margin-bottom: 1pt;
+                color: #111;
+            }
+            #ats-resume .ats-job-tags {
+                font-size: 8.5pt;
+                color: #555;
+                margin-top: 2pt;
+            }
+
+            /* ── Education ── */
+            #ats-resume .ats-edu {
+                display: flex;
+                justify-content: space-between;
+                font-size: 9.5pt;
+                margin-bottom: 4pt;
+            }
+            #ats-resume .ats-edu-date {
+                color: #444;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+    <!-- Theme initialization (prevent flash) -->
+    <script>(function () { var s = localStorage.getItem('theme') || 'system'; document.documentElement.setAttribute('data-theme', s === 'system' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'halloween' : 'light') : s); })();</script>
+</head>
+
+<body class="bg-base-100 text-base-content min-h-screen flex flex-col font-sans antialiased leading-relaxed">
+
+    <!-- Navbar — actions only, no branding -->
+    <header class="sticky top-0 z-50 bg-base-100/90 backdrop-blur-sm border-b border-base-200">
+        <div class="flex items-center justify-end px-4 py-2 max-w-4xl mx-auto w-full gap-2">
+            <a href="mailto:{{ meta.email }}"
+               class="btn btn-primary btn-sm gap-2"
+               aria-label="Get in touch">
+                <i data-lucide="mail"
+                   aria-hidden="true"
+                   class="w-4 h-4"></i>
+                <span class="hidden sm:inline text-sm">Let's talk</span>
+            </a>
+            <button id="printBtn"
+                    onclick="window.print()"
+                    class="btn btn-outline btn-sm gap-2"
+                    aria-label="Save resume as PDF">
+                <i data-lucide="file-down"
+                   aria-hidden="true"
+                   class="w-4 h-4"></i>
+                <span class="hidden sm:inline text-sm">Download Resume</span>
+            </button>
+            <button onclick="toggleTheme()"
+                    class="btn btn-ghost btn-circle btn-sm"
+                    id="themeBtn"
+                    aria-label="Toggle theme">
+                <i data-lucide="monitor"
+                   class="w-5 h-5"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-8 space-y-6 flex-grow w-full">
+
+        <!-- Hero / Profile Header -->
+        <section class="card overflow-hidden">
+            <!-- Gradient accent bar -->
+            <div class="h-2 bg-gradient-to-r from-primary via-secondary to-accent"></div>
+            <div class="card-body">
+                <div class="flex flex-col sm:flex-row sm:items-start gap-5">
+                    <!-- Avatar -->
+                    <div class="shrink-0 no-print">
+                        <div class="w-24 h-24 rounded-full bg-warning/30 flex items-center justify-center">
+                            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Easton&flip=true"
+                                 alt="{{ meta.name }} avatar"
+                                 class="w-20 h-20 rounded-full avatar-breathe" />
+                        </div>
+                    </div>
+                    <!-- Info -->
+                    <div class="flex-1 space-y-3">
+                        <div class="space-y-1">
+                            <h1 class="text-3xl font-bold text-base-content">{{ meta.name }}</h1>
+                            <p class="text-base-content/70 text-lg">{{ meta.title }}</p>
+{% if meta.available %}
+                            <div class="pt-1">
+                                <span class="badge badge-success gap-1.5">
+                                    <i data-lucide="circle"
+                                       aria-hidden="true"
+                                       class="w-2.5 h-2.5 fill-current"></i>
+                                    Available
+                                </span>
+                            </div>
+{% endif %}
+                        </div>
+                        <!-- Stats row -->
+                        <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-base-content/60">
+                            <span class="flex items-center gap-1.5">
+                                <i data-lucide="clock"
+                                   aria-hidden="true"
+                                   class="w-3.5 h-3.5 text-primary"></i>
+                                <span id="yrs-web">9+</span> yrs experience
+                            </span>
+                        </div>
+                        <!-- Meta chips -->
+                        <div class="flex flex-wrap gap-2">
+                            <span class="badge badge-ghost gap-1.5">
+                                <i data-lucide="map-pin"
+                                   aria-hidden="true"
+                                   class="w-3.5 h-3.5 text-primary"></i>
+                                {{ meta.location }}
+                            </span>
+                            <a href="mailto:{{ meta.email }}"
+                               class="badge badge-ghost gap-1.5 hover:badge-primary transition-colors no-underline cursor-pointer">
+                                <i data-lucide="mail"
+                                   aria-hidden="true"
+                                   class="w-3.5 h-3.5"></i>
+                                {{ meta.email }}
+                            </a>
+                        </div>
+                        <!-- Social links -->
+                        <nav aria-label="Social links"
+                             class="flex flex-wrap gap-2">
+                            <a href="{{ meta.links.linkedin }}"
+                               target="_blank"
+                               rel="noopener"
+                               class="btn btn-outline btn-sm gap-2">
+                                <i data-lucide="linkedin"
+                                   aria-hidden="true"
+                                   class="w-4 h-4"></i> LinkedIn
+                            </a>
+                            <a href="{{ meta.links.github }}"
+                               target="_blank"
+                               rel="noopener"
+                               class="btn btn-outline btn-sm gap-2">
+                                <i data-lucide="github"
+                                   aria-hidden="true"
+                                   class="w-4 h-4"></i> GitHub
+                            </a>
+                            <a href="{{ meta.links.blog }}"
+                               target="_blank"
+                               rel="noopener"
+                               class="btn btn-outline btn-sm gap-2">
+                                <i data-lucide="rss"
+                                   aria-hidden="true"
+                                   class="w-4 h-4"></i> Blog
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="card">
+            <div class="card-body">
+                <h2 class="card-title text-xl">
+                    <span class="w-10 h-10 rounded-full bg-primary/30 flex items-center justify-center shrink-0">
+                        <i data-lucide="briefcase"
+                           aria-hidden="true"
+                           class="w-5 h-5 text-primary"></i>
+                    </span>
+                    Professional Experience
+                </h2>
+                <div class="relative space-y-6 mt-2 ml-3">
+                    <!-- Continuous vertical rail -->
+                    <div class="timeline-rail absolute left-0 top-3 bottom-3 w-px bg-base-content/20" aria-hidden="true"></div>
+
+{% for job in experience %}
+{% if job.weight == 'prominent' %}
+{% if loop.first %}
+                    <!-- ASML DevOps -->
+{% else %}
+                    <!-- ASML SSE -->
+{% endif %}
+                    <div class="relative pl-7 space-y-2">
+                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-primary ring-2 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+                            <div>
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <h3 class="font-semibold text-base-content">{{ job.company }}</h3>
+{% if job.badge %}
+                                    <span class="badge badge-ghost badge-sm">{{ job.badge }}</span>
+{% endif %}
+                                </div>
+                                <p class="text-sm text-base-content/60 flex items-center gap-1.5 mt-0.5">
+                                    <i data-lucide="briefcase"
+                                       aria-hidden="true"
+                                       class="w-3.5 h-3.5"></i>
+                                    {{ job.role }} · {{ job.location }}
+                                </p>
+                            </div>
+                            <span class="badge badge-outline gap-1 shrink-0 whitespace-nowrap self-start">
+                                <i data-lucide="calendar"
+                                   aria-hidden="true"
+                                   class="w-3 h-3"></i>
+                                <time datetime="{{ job.start_iso }}">{{ job.start }}</time> – <time datetime="{{ job.end_iso }}">{{ job.end }}</time>
+                            </span>
+                        </div>
+                        <ul class="space-y-1.5">
+{% for highlight in job.highlights %}
+                            <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                <i data-lucide="chevron-right"
+                                   aria-hidden="true"
+                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
+                                <span>{{ highlight }}</span>
+                            </li>
+{% endfor %}
+                        </ul>
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+{% if loop.first %}
+{% for tag in job.tags %}
+                            <span class="badge badge-soft badge-xs">{{ tag }}</span>
+{% endfor %}
+{% else %}
+{% for tag in job.tags %}
+                            <span class="badge badge-soft  badge-xs">{{ tag }}</span>
+{% endfor %}
+{% endif %}
+                        </div>
+                    </div>
+
+{% elif job.weight == 'standard' %}
+{% if job.dot == 'large' %}
+                    <!-- {{ job.company | replace(' Bank', '') }} -->
+                    <div class="relative pl-7 space-y-2">
+                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-3 h-3 rounded-full bg-primary ring-2 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
+{% else %}
+                    <!-- {{ job.company }}{% if not job.badge %} — Senior{% endif %} -->
+                    <div class="relative pl-7 space-y-2">
+                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-primary ring-1 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
+{% endif %}
+                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
+                            <div>
+{% if job.badge %}
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <h3 class="font-semibold text-base-content">{{ job.company }}</h3>
+                                    <span class="badge badge-ghost badge-sm">{{ job.badge }}</span>
+                                </div>
+{% else %}
+                                <h3 class="font-semibold text-base-content">{{ job.company }}</h3>
+{% endif %}
+                                <p class="text-sm text-base-content/60 flex items-center gap-1.5 mt-0.5">
+                                    <i data-lucide="briefcase"
+                                       aria-hidden="true"
+                                       class="w-3.5 h-3.5"></i>
+                                    {{ job.role }} · {{ job.location }}
+                                </p>
+                            </div>
+                            <span class="badge badge-outline gap-1 shrink-0 whitespace-nowrap self-start">
+                                <i data-lucide="calendar"
+                                   aria-hidden="true"
+                                   class="w-3 h-3"></i>
+                                <time datetime="{{ job.start_iso }}">{{ job.start }}</time> – <time datetime="{{ job.end_iso }}">{{ job.end }}</time>
+                            </span>
+                        </div>
+                        <ul class="space-y-1.5">
+{% for highlight in job.highlights %}
+                            <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                <i data-lucide="chevron-right"
+                                   aria-hidden="true"
+                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                <span>{{ highlight }}</span>
+                            </li>
+{% endfor %}
+                        </ul>
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+{% for tag in job.tags %}
+                            <span class="badge badge-soft  badge-xs">{{ tag }}</span>
+{% endfor %}
+                        </div>
+                    </div>
+
+{% elif job.weight == 'compact' %}
+                    <!-- {{ job.company }} — {{ job.compact_suffix | replace(' Team', '') }} (compact earlier entry) -->
+                    <div class="relative pl-7 space-y-1 text-sm">
+                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-2 h-2 rounded-full bg-primary/50 ring-1 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                            <div>
+                                <span class="font-medium text-base-content">{{ job.company }}</span>
+                                <span class="text-base-content/40 mx-1.5">·</span>
+                                <span class="text-base-content/60">{{ job.role }} · {{ job.compact_suffix }},
+                                    {{ job.location }}</span>
+                            </div>
+                            <span class="text-xs text-base-content/50 shrink-0 whitespace-nowrap">
+                                <time datetime="{{ job.start_iso }}">{{ job.start }}</time> – <time datetime="{{ job.end_iso }}">{{ job.end }}</time>
+                            </span>
+                        </div>
+                        <ul class="space-y-1 text-base-content/60">
+{% for highlight in job.highlights %}
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-base-content/30 mt-0.5 shrink-0"></i>
+                                <span>{{ highlight }}</span>
+                            </li>
+{% endfor %}
+                        </ul>
+                        <div class="flex flex-wrap gap-1.5 pt-1">
+{% for tag in job.tags %}
+                            <span class="badge badge-soft badge-xs">{{ tag }}</span>
+{% endfor %}
+                        </div>
+                    </div>
+
+{% endif %}
+{% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="card">
+            <div class="card-body">
+                <h2 class="card-title text-xl">
+                    <span class="w-10 h-10 rounded-full bg-secondary/30 flex items-center justify-center shrink-0">
+                        <i data-lucide="sparkles"
+                           aria-hidden="true"
+                           class="w-5 h-5 text-secondary"></i>
+                    </span>
+                    Skills
+                </h2>
+                <div class="space-y-3 mt-2">
+
+{% for skill in skills %}
+                    <div class="flex items-start gap-3">
+                        <span class="shrink-0 text-xs font-semibold text-base-content/50 uppercase tracking-wide w-28 pt-1">{{ skill.category }}</span>
+                        <div class="flex flex-wrap gap-1.5">
+{% for item in skill['items'] %}
+                            <span class="badge badge-soft badge-outline">{{ item }}</span>
+{% endfor %}
+                        </div>
+                    </div>
+
+{% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Education (hidden on web, shown only in ATS print resume) -->
+        <section id="education-web" class="card">
+            <div class="card-body">
+                <h2 class="card-title text-xl">
+                    <span class="w-10 h-10 rounded-full bg-success/30 flex items-center justify-center shrink-0">
+                        <i data-lucide="graduation-cap"
+                           aria-hidden="true"
+                           class="w-5 h-5 text-success"></i>
+                    </span>
+                    Education
+                </h2>
+                <div class="space-y-3 mt-2">
+
+{% for edu in education %}
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5">
+                        <div>
+                            <span class="font-medium text-base-content">{{ edu.degree }}</span>
+                            <span class="text-base-content/40 mx-1.5 text-sm">·</span>
+{% if (edu.institution ~ ' · ' ~ edu.location)|length > 50 %}
+{% set loc_parts = edu.location.split(', ') %}
+                            <span class="text-sm text-base-content/60">{{ edu.institution }} · {{ loc_parts[0] }},
+                                {{ loc_parts[1] | e }}</span>
+{% else %}
+                            <span class="text-sm text-base-content/60">{{ edu.institution }} · {{ edu.location | e }}</span>
+{% endif %}
+                        </div>
+                        <span class="text-xs text-base-content/50 shrink-0 whitespace-nowrap">
+                            <time datetime="{{ edu.start }}">{{ edu.start }}</time> – <time datetime="{{ edu.end }}">{{ edu.end }}</time>
+                        </span>
+                    </div>
+
+{% endfor %}
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center text-xs text-base-content/50 py-6 border-t border-base-200">
+        &copy; 2026 {{ meta.name }}. All rights reserved.
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════════════
+         ATS-READY PRINT RESUME — hidden on screen, shown on print
+         ═══════════════════════════════════════════════════════ -->
+    <div id="ats-resume">
+
+        <!-- Header -->
+        <h1>{{ meta.name }}</h1>
+        <p class="ats-subtitle">{{ meta.title }}</p>
+        <p class="ats-contact">
+            {{ meta.location }} &nbsp;|&nbsp;
+            {{ meta.email }} &nbsp;|&nbsp;
+            {{ meta.links.linkedin | replace('https://', '') }} &nbsp;|&nbsp;
+            {{ meta.links.blog | replace('https://www.', '') }}
+        </p>
+
+        <!-- Summary -->
+        <h2>Professional Profile</h2>
+        <p>{{ summary }}</p>
+
+        <!-- Experience -->
+        <h2>Professional Experience</h2>
+
+{% for job in experience %}
+        <div class="ats-job">
+            <div class="ats-job-header">
+                <span class="ats-job-title">{{ job.company }}, {{ job.role }}</span>
+                <span class="ats-job-date">{{ job.start }} &ndash; {{ job.end }}</span>
+            </div>
+{% if job.badge %}
+            <p class="ats-job-meta">{{ job.ats_location | default(job.location) }} &nbsp;({{ job.badge }})</p>
+{% elif job.ats_team %}
+            <p class="ats-job-meta">{{ job.ats_location | default(job.location) }} &nbsp;({{ job.ats_team }})</p>
+{% else %}
+            <p class="ats-job-meta">{{ job.ats_location | default(job.location) }}</p>
+{% endif %}
+            <ul>
+{% for highlight in job.highlights %}
+                <li>{{ highlight }}</li>
+{% endfor %}
+            </ul>
+            <p class="ats-job-tags">{{ job.ats_tags | default(job.tags) | join(', ') }}</p>
+        </div>
+
+{% endfor %}
+        <!-- Skills -->
+        <h2>Skills</h2>
+        <table class="ats-skills">
+{% for skill in skills %}
+            <tr>
+                <td>{{ skill.ats_category | default(skill.category) | e }}</td>
+                <td>{{ skill.ats_items | default(skill['items'] | join(', ')) }}</td>
+            </tr>
+{% endfor %}
+        </table>
+
+        <!-- Education -->
+        <h2>Education</h2>
+
+{% for edu in education %}
+        <div class="ats-edu">
+            <div>
+                <strong>{{ edu.degree }}</strong>,
+                {{ edu.institution }}, {{ edu.ats_location | default(edu.location) | e }}
+            </div>
+            <span class="ats-edu-date">{{ edu.start }} &ndash; {{ edu.end }}</span>
+        </div>
+
+{% endfor %}
+    </div>
+    <!-- ── end #ats-resume ── -->
+
+    <!-- Lucide Icons (loaded synchronously before init script) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Theme Toggle + Icon Init Script -->
+    <script>
+        var THEMES = ['light', 'halloween', 'system'];
+        var THEME_ICONS = { 'light': 'sun', 'halloween': 'moon', 'system': 'monitor' };
+        var THEME_COLORS = { 'light': '#ffffff', 'halloween': '#171212' };
+
+        function getSystemTheme() {
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'halloween' : 'light';
+        }
+        function getEffectiveTheme(preference) {
+            return preference === 'system' ? getSystemTheme() : preference;
+        }
+        function updateThemeIcon(preference) {
+            var btn = document.getElementById('themeBtn');
+            if (!btn) return;
+            var pref = preference || localStorage.getItem('theme') || 'system';
+            var iconName = THEME_ICONS[pref] || 'monitor';
+            var iconEl = btn.querySelector('svg, i');
+            if (iconEl) {
+                var newIcon = document.createElement('i');
+                newIcon.setAttribute('data-lucide', iconName);
+                newIcon.className = 'w-5 h-5';
+                iconEl.replaceWith(newIcon);
+                lucide.createIcons({ nodes: [newIcon] });
+            }
+        }
+        function updateThemeColor() {
+            var currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            var color = THEME_COLORS[currentTheme] || '#ffffff';
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', color);
+        }
+        function setTheme(theme) {
+            if (THEMES.indexOf(theme) === -1) theme = 'system';
+            localStorage.setItem('theme', theme);
+            var effectiveTheme = getEffectiveTheme(theme);
+            document.documentElement.setAttribute('data-theme', effectiveTheme);
+            updateThemeColor();
+            updateThemeIcon(theme);
+        }
+        function toggleTheme() {
+            var currentPref = localStorage.getItem('theme') || 'system';
+            var order = ['system', 'light', 'halloween'];
+            var idx = order.indexOf(currentPref);
+            setTheme(order[(idx + 1) % order.length]);
+        }
+        function loadTheme() {
+            var savedTheme = localStorage.getItem('theme');
+            var preference = (savedTheme && THEMES.indexOf(savedTheme) !== -1) ? savedTheme : 'system';
+            var effectiveTheme = getEffectiveTheme(preference);
+            document.documentElement.setAttribute('data-theme', effectiveTheme);
+            updateThemeColor();
+            updateThemeIcon(preference);
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
+            var pref = localStorage.getItem('theme') || 'system';
+            if (pref === 'system') {
+                document.documentElement.setAttribute('data-theme', getSystemTheme());
+                updateThemeColor();
+            }
+        });
+
+        lucide.createIcons();
+        loadTheme();
+        window.addEventListener('load', function () { lucide.createIcons(); });
+
+        // Dynamic years of experience
+        (function () {
+            var yrs = new Date().getFullYear() - {{ meta.career_start }};
+            var label = yrs + '+';
+            var web = document.getElementById('yrs-web');
+            var ats = document.getElementById('yrs-ats');
+            if (web) web.textContent = label;
+            if (ats) ats.textContent = label;
+        })();
+    </script>
+
+</body>
+
+</html>
