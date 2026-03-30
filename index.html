@@ -231,14 +231,22 @@
     <!-- Navbar — actions only, no branding -->
     <header class="sticky top-0 z-50 bg-base-100/90 backdrop-blur-sm border-b border-base-200">
         <div class="flex items-center justify-end px-4 py-2 max-w-4xl mx-auto w-full gap-2">
+            <a href="mailto:irshsheik@gmail.com"
+               class="btn btn-primary btn-sm gap-2"
+               aria-label="Get in touch">
+                <i data-lucide="mail"
+                   aria-hidden="true"
+                   class="w-4 h-4"></i>
+                <span class="hidden sm:inline text-sm">Let's talk</span>
+            </a>
             <button id="printBtn"
                     onclick="window.print()"
-                    class="btn btn-primary btn-sm gap-2"
+                    class="btn btn-outline btn-sm gap-2"
                     aria-label="Save resume as PDF">
                 <i data-lucide="file-down"
                    aria-hidden="true"
                    class="w-4 h-4"></i>
-                <span class="hidden sm:inline text-sm">Save as PDF</span>
+                <span class="hidden sm:inline text-sm">Download Resume</span>
             </button>
             <button onclick="toggleTheme()"
                     class="btn btn-ghost btn-circle btn-sm"
@@ -276,7 +284,7 @@
                                     <i data-lucide="circle"
                                        aria-hidden="true"
                                        class="w-2.5 h-2.5 fill-current"></i>
-                                    Available for opportunities
+                                    Available
                                 </span>
                             </div>
                         </div>

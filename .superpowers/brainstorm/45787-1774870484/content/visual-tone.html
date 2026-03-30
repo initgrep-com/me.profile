@@ -1,0 +1,110 @@
+<h2>Which visual tone fits your portfolio?</h2>
+<p class="subtitle">Click the one that feels right. Each shows your hero section in that style.</p>
+
+<div class="cards">
+
+  <!-- Option A: Refined Minimal -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0;overflow:hidden;">
+      <div style="background:#fafafa;padding:28px 24px;font-family:'Inter',system-ui,sans-serif;color:#1a1a1a;">
+        <!-- Thin accent line -->
+        <div style="width:40px;height:3px;background:#6366f1;margin-bottom:20px;border-radius:2px;"></div>
+        <div style="font-size:26px;font-weight:700;letter-spacing:-0.5px;margin-bottom:4px;">Irshad Sheikh</div>
+        <div style="font-size:14px;color:#71717a;margin-bottom:16px;">Senior Software Engineer</div>
+        <div style="display:flex;gap:8px;margin-bottom:14px;">
+          <span style="font-size:11px;padding:4px 10px;border:1px solid #e4e4e7;border-radius:999px;color:#52525b;">Eindhoven, NL</span>
+          <span style="font-size:11px;padding:4px 10px;border:1px solid #e4e4e7;border-radius:999px;color:#52525b;">irshsheik@gmail.com</span>
+        </div>
+        <div style="display:flex;gap:6px;">
+          <span style="font-size:11px;padding:5px 12px;border:1px solid #d4d4d8;border-radius:6px;color:#3f3f46;">LinkedIn</span>
+          <span style="font-size:11px;padding:5px 12px;border:1px solid #d4d4d8;border-radius:6px;color:#3f3f46;">GitHub</span>
+          <span style="font-size:11px;padding:5px 12px;border:1px solid #d4d4d8;border-radius:6px;color:#3f3f46;">Blog</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A. Refined Minimal</h3>
+      <p>Generous whitespace, muted palette, subtle accent line. Premium feel through restraint. Think Stripe/Linear.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Warm & Approachable -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0;overflow:hidden;">
+      <div style="background:#fffbf5;padding:28px 24px;font-family:'Inter',system-ui,sans-serif;color:#292524;">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+          <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#fbbf24,#f97316);display:flex;align-items:center;justify-content:center;font-size:22px;color:white;font-weight:700;">IS</div>
+          <div>
+            <div style="font-size:24px;font-weight:700;color:#292524;">Irshad Sheikh</div>
+            <div style="font-size:13px;color:#78716c;">Senior Software Engineer</div>
+          </div>
+        </div>
+        <div style="background:#f5f0e8;border-radius:12px;padding:10px 14px;margin-bottom:12px;">
+          <span style="font-size:12px;color:#16a34a;">&#9679;</span>
+          <span style="font-size:12px;color:#44403c;margin-left:4px;">Available for opportunities</span>
+        </div>
+        <div style="display:flex;gap:6px;">
+          <span style="font-size:11px;padding:5px 12px;background:#fef3c7;border-radius:999px;color:#92400e;">LinkedIn</span>
+          <span style="font-size:11px;padding:5px 12px;background:#fef3c7;border-radius:999px;color:#92400e;">GitHub</span>
+          <span style="font-size:11px;padding:5px 12px;background:#fef3c7;border-radius:999px;color:#92400e;">Blog</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B. Warm & Approachable</h3>
+      <p>Soft warm tones, rounded elements, friendly gradient avatar. Inviting and personal. Like a well-crafted blog.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Bold & Modern -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0;overflow:hidden;">
+      <div style="background:#0f172a;padding:28px 24px;font-family:'Inter',system-ui,sans-serif;color:#f1f5f9;">
+        <div style="font-size:28px;font-weight:800;letter-spacing:-0.5px;margin-bottom:2px;">
+          Irshad <span style="color:#818cf8;">Sheikh</span>
+        </div>
+        <div style="font-size:14px;color:#94a3b8;margin-bottom:14px;text-transform:uppercase;letter-spacing:2px;font-weight:500;">Senior Software Engineer</div>
+        <div style="display:flex;gap:8px;margin-bottom:14px;">
+          <span style="font-size:11px;padding:4px 10px;background:#1e293b;border:1px solid #334155;border-radius:6px;color:#cbd5e1;">Eindhoven, NL</span>
+          <span style="font-size:11px;padding:4px 10px;background:#1e293b;border:1px solid #334155;border-radius:6px;color:#cbd5e1;">11+ yrs exp</span>
+        </div>
+        <div style="display:flex;gap:6px;">
+          <span style="font-size:11px;padding:6px 14px;background:#6366f1;border-radius:6px;color:white;font-weight:600;">LinkedIn</span>
+          <span style="font-size:11px;padding:6px 14px;border:1px solid #6366f1;border-radius:6px;color:#818cf8;font-weight:500;">GitHub</span>
+          <span style="font-size:11px;padding:6px 14px;border:1px solid #6366f1;border-radius:6px;color:#818cf8;font-weight:500;">Blog</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C. Bold & Modern</h3>
+      <p>Dark base, vivid accent color, strong typography with color highlights. Confident and distinctive. Stands out immediately.</p>
+    </div>
+  </div>
+
+  <!-- Option D: Polish current -->
+  <div class="card" data-choice="d" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:0;overflow:hidden;">
+      <div style="background:white;padding:28px 24px;font-family:'Inter',system-ui,sans-serif;color:#1f2937;">
+        <div style="height:3px;background:linear-gradient(to right,#6366f1,#ec4899,#f59e0b);margin-bottom:18px;border-radius:2px;"></div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+          <div style="width:48px;height:48px;border-radius:50%;background:#fef3c7;display:flex;align-items:center;justify-content:center;font-size:11px;color:#92400e;">avatar</div>
+          <div>
+            <div style="font-size:22px;font-weight:700;">Irshad Sheikh</div>
+            <div style="font-size:13px;color:#6b7280;">Senior Software Engineer</div>
+          </div>
+        </div>
+        <div style="display:inline-block;font-size:11px;padding:3px 8px;background:#dcfce7;border-radius:999px;color:#166534;margin-bottom:12px;">&#9679; Available</div>
+        <div style="display:flex;gap:6px;">
+          <span style="font-size:11px;padding:5px 12px;border:1px solid #d1d5db;border-radius:6px;color:#374151;">LinkedIn</span>
+          <span style="font-size:11px;padding:5px 12px;border:1px solid #d1d5db;border-radius:6px;color:#374151;">GitHub</span>
+          <span style="font-size:11px;padding:5px 12px;border:1px solid #d1d5db;border-radius:6px;color:#374151;">Blog</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>D. Polish Current</h3>
+      <p>Keep the existing card layout + gradient bar + avatar. Fix spacing, responsiveness, accessibility. No dramatic visual change.</p>
+    </div>
+  </div>
+
+</div>
