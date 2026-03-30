@@ -60,6 +60,20 @@
             animation: breathe 4s ease-in-out infinite;
         }
 
+        /* Hide ATS resume on screen using positioning (not display:none)
+           so Safari's print engine can still calculate full layout */
+        #ats-resume {
+            position: fixed;
+            left: -99999px;
+            top: 0;
+            visibility: hidden;
+        }
+
+        /* Hide education on web — only shown in ATS print resume */
+        #education-web {
+            display: none;
+        }
+
         @media print {
             /* ── Hide everything except the ATS resume ── */
             header,
@@ -69,12 +83,14 @@
             }
 
             #ats-resume {
+                position: static !important;
+                visibility: visible !important;
                 display: block !important;
             }
 
             /* ── Page setup ── */
             @page {
-                margin: 1.8cm 1.5cm;
+                margin: 1.5cm 1.3cm;
                 size: A4;
             }
 
@@ -88,7 +104,7 @@
             body {
                 font-family: 'Inter', Arial, sans-serif;
                 font-size: 10.5pt;
-                line-height: 1.45;
+                line-height: 1.35;
                 color: #000 !important;
                 background: #fff !important;
                 color-scheme: light !important;
@@ -96,7 +112,7 @@
 
             /* ── Name & title ── */
             #ats-resume h1 {
-                font-size: 20pt;
+                font-size: 18pt;
                 font-weight: 700;
                 margin: 0 0 2pt 0;
                 letter-spacing: -0.3pt;
@@ -124,7 +140,7 @@
                 text-transform: uppercase;
                 letter-spacing: 0.6pt;
                 border-bottom: 1.5px solid #000;
-                margin: 14pt 0 5pt 0;
+                margin: 10pt 0 4pt 0;
                 padding-bottom: 2pt;
             }
 
@@ -147,7 +163,7 @@
 
             /* ── Experience entries ── */
             #ats-resume .ats-job {
-                margin-bottom: 9pt;
+                margin-bottom: 6pt;
                 break-inside: avoid;
             }
             #ats-resume .ats-job-header {
@@ -172,13 +188,13 @@
                 margin: 1pt 0 3pt 0;
             }
             #ats-resume ul {
-                margin: 3pt 0 3pt 14pt;
+                margin: 2pt 0 2pt 12pt;
                 padding: 0;
                 list-style-type: disc;
             }
             #ats-resume li {
                 font-size: 9.5pt;
-                margin-bottom: 1.5pt;
+                margin-bottom: 1pt;
                 color: #111;
             }
             #ats-resume .ats-job-tags {
@@ -723,8 +739,8 @@
             </div>
         </section>
 
-        <!-- Education -->
-        <section class="card">
+        <!-- Education (hidden on web, shown only in ATS print resume) -->
+        <section id="education-web" class="card">
             <div class="card-body">
                 <h2 class="card-title text-xl">
                     <span class="w-10 h-10 rounded-full bg-success/30 flex items-center justify-center shrink-0">
@@ -772,7 +788,7 @@
     <!-- ═══════════════════════════════════════════════════════
          ATS-READY PRINT RESUME — hidden on screen, shown on print
          ═══════════════════════════════════════════════════════ -->
-    <div id="ats-resume" style="display:none">
+    <div id="ats-resume">
 
         <!-- Header -->
         <h1>Irshad Sheikh</h1>
