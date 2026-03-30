@@ -6,8 +6,8 @@ Static personal resume for Irshad Sheikh, deployed at [me.initgrep.com](https://
 
 | File | Purpose |
 |------|---------|
-| `resume.yaml` | All resume content — **edit this to change data** |
-| `resume.schema.json` | JSON Schema for `resume.yaml` (validation + editor autocomplete) |
+| `data.yaml` | All resume content — **edit this to change data** |
+| `resume.schema.json` | JSON Schema for `data.yaml` (validation + editor autocomplete) |
 | `templates/base.html` | Jinja2 HTML template — **edit this for layout/style changes** |
 | `build.py` | Reads YAML + template, writes `index.html` |
 | `index.html` | Generated output (committed, served by GH Pages) — **do not edit directly** |
@@ -18,7 +18,7 @@ Static personal resume for Irshad Sheikh, deployed at [me.initgrep.com](https://
 
 ## Workflow
 
-1. Edit `resume.yaml` for content changes (new experience, updated skills, etc.)
+1. Edit `data.yaml` for content changes (new experience, updated skills, etc.)
 2. Edit `templates/base.html` for layout/style changes
 3. `git commit` — pre-commit hook runs `build.py` automatically, regenerates and stages `index.html`
 4. Push to `main` — GitHub Pages serves the static `index.html`
@@ -52,10 +52,12 @@ Static personal resume for Irshad Sheikh, deployed at [me.initgrep.com](https://
 
 ## Experience Weight System
 
-Each experience entry in `resume.yaml` has a `weight` field controlling web view appearance:
+Each experience entry in `data.yaml` has a `weight` field controlling web view appearance:
 - `prominent`: large timeline dot (w-3.5), ring-2, primary-colored chevrons (recent/current roles)
-- `standard`: medium dot (w-3 or w-2.5), ring-2 or ring-1, muted chevrons (mid-career)
+- `standard`: medium dot (w-2.5), ring-1, muted chevrons (mid-career)
 - `compact`: small dot (w-2), condensed inline layout, muted text (early career)
+
+Set `visible: false` on any entry to hide it from both views.
 
 ATS print view renders all entries identically regardless of weight.
 

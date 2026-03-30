@@ -1,0 +1,181 @@
+# yaml-language-server: $schema=resume.schema.json
+
+meta:
+  name: Irshad Sheikh
+  title: Senior Software Engineer
+  email: irshsheik@gmail.com
+  location: Eindhoven, Netherlands
+  available: true
+  career_start: 2015
+  links:
+    linkedin: https://linkedin.com/in/irshsheik
+    github: https://github.com/irshsheik
+    blog: https://www.initgrep.com
+
+summary: >-
+  Senior software engineer with 11+ years building distributed backend systems
+  and cloud-native infrastructure across semiconductor, fintech, telecom, and
+  enterprise software domains. Currently at ASML working on Kubernetes-based
+  platform tooling and CI/CD automation.
+
+experience:
+  - company: ASML
+    via: Luxoft
+    role: Platform Engineer
+    location: Eindhoven, Netherlands
+    start: "2025-01"
+    end: present
+    weight: prominent
+    skills:
+      - Azure
+      - Kubernetes
+      - Bamboo
+      - Artifactory
+      - JFrog CLI
+      - Python
+      - Shell
+    highlights:
+      - Built a shared SSH connectivity library for Bamboo pipelines to connect to proxy-protected Azure clusters via jumphost, eliminating repeated configuration across plans.
+      - Migrated artifact management from Nexus to Artifactory across 7-10 development teams, covering configuration, code changes, and onboarding guidelines.
+      - Built and maintained Bamboo CI/CD pipelines for automated deployment and integration workflows, supporting continuous delivery across multiple teams.
+      - Addressed gaps in Artifactory's native retention policies by building a JFrog CLI cleanup tool that cleared 11 TB of stale artifacts on first run and reclaims around 1 TB each week.
+
+  - company: ASML
+    via: Luxoft
+    role: Senior Software Engineer
+    location: Eindhoven, Netherlands
+    start: "2023-01"
+    end: "2025-01"
+    weight: prominent
+    skills:
+      - Spring Boot
+      - Kubernetes
+      - React
+      - Redux
+      - MongoDB
+      - Cucumber
+      - Selenium
+    highlights:
+      - Refactored document ingestion to stream files via Spring WebClient instead of buffering them in memory, reducing peak memory overhead by ~40%.
+      - Built a Kubernetes Operator that dynamically scales ingestion connectors from 2 to up to 200 instances based on real-time traffic metrics.
+      - Developed the front end for a product feature that lets customers label hardware assets and track equipment deployments in real time.
+      - Delivered a zero-downtime data migration solution for existing customers, built with Spring Boot and shell scripting.
+      - Developed components for a simulation-based test framework that mimics physical equipment during platform installation, enabling end-to-end testing without real hardware on-site.
+
+  - company: CIMB Bank
+    via: Luxoft
+    role: Senior Software Engineer
+    location: Bengaluru, India
+    start: "2021-02"
+    end: "2023-01"
+    weight: standard
+    skills:
+      - Spring Boot
+      - REST / HATEOAS
+      - Angular
+      - PostgreSQL
+      - KYC
+    highlights:
+      - Led feature refinement, technical design, and architecture planning, including managing the team, handling client communication, and coordinating with stakeholders on a retail banking platform.
+      - Designed and implemented the backend API layer for the customer onboarding module, covering account creation, eligibility checks, and product selection flows.
+      - Integrated government identity APIs to support KYC verification and product eligibility checks during customer onboarding.
+      - Developed the multi-step customer registration flow in Angular, integrating with backend APIs and identity verification services.
+
+  - company: Du Telecom
+    via: Phire Global
+    role: Senior Software Engineer
+    location: Dubai, UAE
+    start: "2019-04"
+    end: "2021-02"
+    weight: standard
+    skills:
+      - Java
+      - Angular
+      - Microsoft Office SDK
+      - REST APIs
+    highlights:
+      - Managed end-to-end delivery as the primary client contact, handling stakeholder communication, coordinating the development team, and translating business requirements into technical solutions.
+      - Developed an Outlook add-in (Angular + Microsoft Office SDK) allowing users to upload contracts, attach emails, and view contract details directly from their inbox.
+      - Designed a contract history system that saves a full snapshot at every change, letting users retrieve the exact state of a contract at any point in its history.
+      - Implemented audit trail tracking all contract changes and user actions across the contract lifecycle.
+
+  - company: MetricStream
+    role: Senior Member of Technical Staff
+    location: Bengaluru, India
+    start: "2018-04"
+    end: "2019-04"
+    weight: standard
+    skills:
+      - Spring Boot
+      - JPA
+      - PostgreSQL
+      - IFRS
+      - GAAP
+    highlights:
+      - Built custom audit dashboards for a global financial audit firm, applying IFRS and GAAP framework logic to support their internal audit workflows.
+      - Migrated the reporting module to Spring framework with JPA support and developed new APIs using Jersey client as part of a major platform architecture and UI modernisation effort.
+
+  - company: MetricStream
+    team: Zaplet Team
+    role: Member of Technical Staff
+    location: Bengaluru, India
+    start: "2015-04"
+    end: "2018-04"
+    weight: compact
+    skills:
+      - Lua
+      - Backbone.js
+      - OpenShift
+      - HTML
+      - CSS
+    highlights:
+      - Developed an on-demand demo system that spun up a minimal platform instance on OpenShift with a time-limited public URL, enabling sales teams to run live customer demos.
+      - Built a lightweight Lua-based controller service that automated data aggregation from multiple sources through web login and scraping, SSH, and API integrations.
+      - Developed event and calendar pages on the company portal, giving users a structured view to schedule and track compliance activities.
+
+skills:
+  - category: Core
+    items:
+      - Java
+      - JavaScript
+      - TypeScript
+      - Python
+
+  - category: Frontend
+    items:
+      - React
+      - Angular
+
+  - category: Cloud & Infrastructure
+    items:
+      - Docker
+      - Kubernetes
+      - Helm
+      - Azure
+      - Firebase
+
+  - category: Observability
+    items:
+      - Grafana
+      - Prometheus
+      - Splunk
+
+  - category: Databases
+    items:
+      - PostgreSQL
+      - MySQL
+      - MongoDB
+      - Firestore
+
+education:
+  - degree: Master of Computer Applications
+    institution: Visvesvaraya Technological University (VTU)
+    location: Bengaluru, India
+    start: 2010
+    end: 2013
+
+  - degree: Bachelor of Computer Applications
+    institution: University of Kashmir
+    location: J&K, India
+    start: 2006
+    end: 2009
