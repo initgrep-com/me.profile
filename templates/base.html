@@ -371,17 +371,12 @@
                         <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-primary ring-2 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
                         <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
                             <div>
-                                <div class="flex flex-wrap items-center gap-2">
-                                    <h3 class="font-semibold text-base-content">{{ job.company }}</h3>
-{% if job.via %}
-                                    <span class="badge badge-ghost badge-sm">Consultant via {{ job.via }}</span>
-{% endif %}
-                                </div>
+                                <h3 class="font-semibold text-base-content">{{ job.role }}</h3>
                                 <p class="text-sm text-base-content/60 flex items-center gap-1.5 mt-0.5">
                                     <i data-lucide="briefcase"
                                        aria-hidden="true"
                                        class="w-3.5 h-3.5"></i>
-                                    {{ job.role }} &middot; {{ job.location }}
+                                    {{ job.company }}{% if job.via %} (via {{ job.via }}){% endif %} &middot; {{ job.location }}
                                 </p>
                             </div>
                             <span class="badge badge-outline gap-1 shrink-0 whitespace-nowrap self-start">
@@ -414,19 +409,12 @@
                         <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-primary ring-1 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
                         <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
                             <div>
-{% if job.via %}
-                                <div class="flex flex-wrap items-center gap-2">
-                                    <h3 class="font-semibold text-base-content">{{ job.company }}</h3>
-                                    <span class="badge badge-ghost badge-sm">Consultant via {{ job.via }}</span>
-                                </div>
-{% else %}
-                                <h3 class="font-semibold text-base-content">{{ job.company }}</h3>
-{% endif %}
+                                <h3 class="font-semibold text-base-content">{{ job.role }}</h3>
                                 <p class="text-sm text-base-content/60 flex items-center gap-1.5 mt-0.5">
                                     <i data-lucide="briefcase"
                                        aria-hidden="true"
                                        class="w-3.5 h-3.5"></i>
-                                    {{ job.role }} &middot; {{ job.location }}
+                                    {{ job.company }}{% if job.via %} (via {{ job.via }}){% endif %} &middot; {{ job.location }}
                                 </p>
                             </div>
                             <span class="badge badge-outline gap-1 shrink-0 whitespace-nowrap self-start">
@@ -459,10 +447,11 @@
                         <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-2 h-2 rounded-full bg-primary/50 ring-1 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
                         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
                             <div>
-                                <span class="font-medium text-base-content">{{ job.company }}</span>
-                                <span class="text-base-content/40 mx-1.5">&middot;</span>
-                                <span class="text-base-content/60">{{ job.role }}{% if job.team %} &middot; {{ job.team }},{% endif %}
-                                    {{ job.location }}</span>
+                                <span class="font-medium text-base-content">{{ job.role }}</span>
+                                <span class="flex items-center gap-1.5 text-xs text-base-content/60 mt-0.5">
+                                    <i data-lucide="briefcase" aria-hidden="true" class="w-3.5 h-3.5 shrink-0"></i>
+                                    {{ job.company }}{% if job.team %} &middot; {{ job.team }},{% endif %} {{ job.location }}
+                                </span>
                             </div>
                             <span class="text-xs text-base-content/50 shrink-0 whitespace-nowrap">
                                 <time datetime="{{ job.start }}">{{ job.start | format_date }}</time> – <time datetime="{{ job.end }}">{{ job.end | format_date }}</time>
@@ -585,15 +574,15 @@
 {% if job.visible is not defined or job.visible %}
         <div class="ats-job">
             <div class="ats-job-header">
-                <span class="ats-job-title">{{ job.company }}, {{ job.role }}</span>
+                <span class="ats-job-title">{{ job.role }}</span>
                 <span class="ats-job-date">{{ job.start | format_date }} &ndash; {{ job.end | format_date }}</span>
             </div>
 {% if job.via %}
-            <p class="ats-job-meta">{{ job.location }} &nbsp;(Consultant via {{ job.via }})</p>
+            <p class="ats-job-meta">{{ job.company }} (via {{ job.via }}) &middot; {{ job.location }}</p>
 {% elif job.team %}
-            <p class="ats-job-meta">{{ job.location }} &nbsp;({{ job.team }})</p>
+            <p class="ats-job-meta">{{ job.company }} &middot; {{ job.team }}, {{ job.location }}</p>
 {% else %}
-            <p class="ats-job-meta">{{ job.location }}</p>
+            <p class="ats-job-meta">{{ job.company }} &middot; {{ job.location }}</p>
 {% endif %}
             <ul>
 {% for highlight in job.highlights %}
