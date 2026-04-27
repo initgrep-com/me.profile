@@ -278,7 +278,6 @@
                     <div class="flex-1 space-y-3">
                         <div class="space-y-1">
                             <h1 class="text-3xl font-bold text-base-content">Irshad Sheikh</h1>
-                            <p class="text-base-content/70 text-lg">Senior Software Engineer</p>
                             <div class="pt-1">
                                 <span class="badge badge-success gap-1.5">
                                     <i data-lucide="circle"
@@ -357,317 +356,386 @@
                     </span>
                     Professional Experience
                 </h2>
-                <div class="relative space-y-6 mt-2 ml-3">
-                    <!-- Continuous vertical rail -->
-                    <div class="timeline-rail absolute left-0 top-3 bottom-3 w-px bg-base-content/20" aria-hidden="true"></div>
+                <div class="space-y-1 mt-2">
 
-                    <!-- ASML Platform Engineer -->
-                    <div class="relative pl-7 space-y-2">
-                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-primary ring-2 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-                            <div>
-                                <h3 class="font-semibold text-base-content">Platform Engineer</h3>
-                                <p class="text-sm text-base-content/60 flex items-center gap-1.5 mt-0.5">
-                                    <i data-lucide="briefcase"
-                                       aria-hidden="true"
-                                       class="w-3.5 h-3.5"></i>
-                                    ASML (via Luxoft) &middot; Eindhoven, Netherlands
-                                </p>
+                    <div class="collapse collapse-arrow border border-base-200 rounded-lg border-primary/30 bg-primary/10">
+                        <input type="checkbox" aria-label="Platform Engineer at ASML" />
+                        <div class="collapse-title py-3 pr-10 min-h-0">
+                            <div class="flex items-start gap-2.5">
+                                <div class="w-8 h-8 rounded bg-base-200 flex items-center justify-center shrink-0 overflow-hidden mt-0.5">
+                                    <i data-lucide="briefcase" aria-hidden="true" class="w-4 h-4 opacity-30"></i>
+                                    <img src="assets/asml.svg"
+                                         alt="ASML logo"
+                                         class="w-full h-full object-contain p-1 hidden"
+                                         onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';"
+                                         onerror="this.style.display='none'" />
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5">
+                                        <span class="font-semibold text-base-content leading-snug">ASML &ndash; Platform Engineer <span class="badge badge-primary badge-xs ml-1 align-middle">Current</span></span>
+                                        <span class="text-xs text-base-content/50 shrink-0 whitespace-nowrap">
+                                            <time datetime="2025-01">Jan 2025</time> &ndash; <time datetime="present">Present</time>
+                                        </span>
+                                    </div>
+                                    <span class="text-xs text-base-content/50 flex items-center gap-1 mt-0.5">
+                                        <i data-lucide="map-pin" aria-hidden="true" class="w-3 h-3 shrink-0"></i>
+                                        Eindhoven, Netherlands
+                                    </span>
+                                </div>
                             </div>
-                            <span class="badge badge-outline gap-1 shrink-0 whitespace-nowrap self-start">
-                                <i data-lucide="calendar"
-                                   aria-hidden="true"
-                                   class="w-3 h-3"></i>
-                                <time datetime="2025-01">Jan 2025</time> – <time datetime="present">Present</time>
-                            </span>
                         </div>
-                        <ul class="space-y-1.5">
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
-                                <span>Built a shared SSH connectivity library for Bamboo pipelines to connect to proxy-protected Azure clusters via jumphost, eliminating repeated configuration across plans.</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
-                                <span>Migrated artifact management from Nexus to Artifactory across 7-10 development teams, covering configuration, code changes, and onboarding guidelines.</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
-                                <span>Built and maintained Bamboo CI/CD pipelines for automated deployment and integration workflows, supporting continuous delivery across multiple teams.</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
-                                <span>Addressed gaps in Artifactory's native retention policies by building a JFrog CLI cleanup tool that cleared 11 TB of stale artifacts on first run and reclaims around 1 TB each week.</span>
-                            </li>
-                        </ul>
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="badge badge-soft badge-xs">Azure</span>
-                            <span class="badge badge-soft badge-xs">Kubernetes</span>
-                            <span class="badge badge-soft badge-xs">Bamboo</span>
-                            <span class="badge badge-soft badge-xs">Artifactory</span>
-                            <span class="badge badge-soft badge-xs">JFrog CLI</span>
-                            <span class="badge badge-soft badge-xs">Python</span>
-                            <span class="badge badge-soft badge-xs">Shell</span>
+                        <div class="collapse-content pt-0">
+                            <div class="pl-4 space-y-2 pt-1 border-t border-base-200">
+                                <ul class="space-y-1.5 pt-2">
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
+                                        <span>Built a shared SSH connectivity library for Bamboo pipelines to connect to proxy-protected Azure clusters via jumphost, eliminating repeated configuration across plans.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
+                                        <span>Migrated artifact management from Nexus to Artifactory across 7-10 development teams, covering configuration, code changes, and onboarding guidelines.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
+                                        <span>Built and maintained Bamboo CI/CD pipelines for automated deployment and integration workflows, supporting continuous delivery across multiple teams.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
+                                        <span>Addressed gaps in Artifactory's native retention policies by building a JFrog CLI cleanup tool that cleared 11 TB of stale artifacts on first run and reclaims around 1 TB each week.</span>
+                                    </li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    <span class="badge badge-soft badge-xs">Azure</span>
+                                    <span class="badge badge-soft badge-xs">Kubernetes</span>
+                                    <span class="badge badge-soft badge-xs">Bamboo</span>
+                                    <span class="badge badge-soft badge-xs">Artifactory</span>
+                                    <span class="badge badge-soft badge-xs">JFrog CLI</span>
+                                    <span class="badge badge-soft badge-xs">Python</span>
+                                    <span class="badge badge-soft badge-xs">Shell</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- ASML Senior Software Engineer -->
-                    <div class="relative pl-7 space-y-2">
-                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-primary ring-2 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-                            <div>
-                                <h3 class="font-semibold text-base-content">Senior Software Engineer</h3>
-                                <p class="text-sm text-base-content/60 flex items-center gap-1.5 mt-0.5">
-                                    <i data-lucide="briefcase"
-                                       aria-hidden="true"
-                                       class="w-3.5 h-3.5"></i>
-                                    ASML (via Luxoft) &middot; Eindhoven, Netherlands
-                                </p>
+                    <div class="collapse collapse-arrow border border-base-200 rounded-lg bg-base-100">
+                        <input type="checkbox" aria-label="Senior Software Engineer at ASML" />
+                        <div class="collapse-title py-3 pr-10 min-h-0">
+                            <div class="flex items-start gap-2.5">
+                                <div class="w-8 h-8 rounded bg-base-200 flex items-center justify-center shrink-0 overflow-hidden mt-0.5">
+                                    <i data-lucide="briefcase" aria-hidden="true" class="w-4 h-4 opacity-30"></i>
+                                    <img src="assets/asml.svg"
+                                         alt="ASML logo"
+                                         class="w-full h-full object-contain p-1 hidden"
+                                         onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';"
+                                         onerror="this.style.display='none'" />
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5">
+                                        <span class="font-semibold text-base-content leading-snug">ASML &ndash; Senior Software Engineer</span>
+                                        <span class="text-xs text-base-content/50 shrink-0 whitespace-nowrap">
+                                            <time datetime="2023-01">Jan 2023</time> &ndash; <time datetime="2025-01">Jan 2025</time>
+                                        </span>
+                                    </div>
+                                    <span class="text-xs text-base-content/50 flex items-center gap-1 mt-0.5">
+                                        <i data-lucide="map-pin" aria-hidden="true" class="w-3 h-3 shrink-0"></i>
+                                        Eindhoven, Netherlands
+                                    </span>
+                                </div>
                             </div>
-                            <span class="badge badge-outline gap-1 shrink-0 whitespace-nowrap self-start">
-                                <i data-lucide="calendar"
-                                   aria-hidden="true"
-                                   class="w-3 h-3"></i>
-                                <time datetime="2023-01">Jan 2023</time> – <time datetime="2025-01">Jan 2025</time>
-                            </span>
                         </div>
-                        <ul class="space-y-1.5">
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
-                                <span>Refactored document ingestion to stream files via Spring WebClient instead of buffering them in memory, reducing peak memory overhead by ~40%.</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
-                                <span>Built a Kubernetes Operator that dynamically scales ingestion connectors from 2 to up to 200 instances based on real-time traffic metrics.</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
-                                <span>Developed the front end for a product feature that lets customers label hardware assets and track equipment deployments in real time.</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
-                                <span>Delivered a zero-downtime data migration solution for existing customers, built with Spring Boot and shell scripting.</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
-                                <span>Developed components for a simulation-based test framework that mimics physical equipment during platform installation, enabling end-to-end testing without real hardware on-site.</span>
-                            </li>
-                        </ul>
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="badge badge-soft badge-xs">Spring Boot</span>
-                            <span class="badge badge-soft badge-xs">Kubernetes</span>
-                            <span class="badge badge-soft badge-xs">React</span>
-                            <span class="badge badge-soft badge-xs">Redux</span>
-                            <span class="badge badge-soft badge-xs">MongoDB</span>
-                            <span class="badge badge-soft badge-xs">Cucumber</span>
-                            <span class="badge badge-soft badge-xs">Selenium</span>
+                        <div class="collapse-content pt-0">
+                            <div class="pl-4 space-y-2 pt-1 border-t border-base-200">
+                                <ul class="space-y-1.5 pt-2">
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Refactored document ingestion to stream files via Spring WebClient instead of buffering them in memory, reducing peak memory overhead by ~40%.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Built a Kubernetes Operator that dynamically scales ingestion connectors from 2 to up to 200 instances based on real-time traffic metrics.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Developed the front end for a product feature that lets customers label hardware assets and track equipment deployments in real time.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Delivered a zero-downtime data migration solution for existing customers, built with Spring Boot and shell scripting.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Developed components for a simulation-based test framework that mimics physical equipment during platform installation, enabling end-to-end testing without real hardware on-site.</span>
+                                    </li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    <span class="badge badge-soft badge-xs">Spring Boot</span>
+                                    <span class="badge badge-soft badge-xs">Kubernetes</span>
+                                    <span class="badge badge-soft badge-xs">React</span>
+                                    <span class="badge badge-soft badge-xs">Redux</span>
+                                    <span class="badge badge-soft badge-xs">MongoDB</span>
+                                    <span class="badge badge-soft badge-xs">Cucumber</span>
+                                    <span class="badge badge-soft badge-xs">Selenium</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- CIMB Bank Senior Software Engineer -->
-                    <div class="relative pl-7 space-y-2">
-                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-primary ring-1 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-                            <div>
-                                <h3 class="font-semibold text-base-content">Senior Software Engineer</h3>
-                                <p class="text-sm text-base-content/60 flex items-center gap-1.5 mt-0.5">
-                                    <i data-lucide="briefcase"
-                                       aria-hidden="true"
-                                       class="w-3.5 h-3.5"></i>
-                                    CIMB Bank (via Luxoft) &middot; Bengaluru, India
-                                </p>
+                    <div class="collapse collapse-arrow border border-base-200 rounded-lg bg-base-100">
+                        <input type="checkbox" aria-label="Senior Software Engineer at CIMB Bank" />
+                        <div class="collapse-title py-3 pr-10 min-h-0">
+                            <div class="flex items-start gap-2.5">
+                                <div class="w-8 h-8 rounded bg-base-200 flex items-center justify-center shrink-0 overflow-hidden mt-0.5">
+                                    <i data-lucide="briefcase" aria-hidden="true" class="w-4 h-4 opacity-30"></i>
+                                    <img src="assets/cimb.svg"
+                                         alt="CIMB Bank logo"
+                                         class="w-full h-full object-contain p-1 hidden"
+                                         onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';"
+                                         onerror="this.style.display='none'" />
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5">
+                                        <span class="font-semibold text-base-content leading-snug">CIMB Bank &ndash; Senior Software Engineer</span>
+                                        <span class="text-xs text-base-content/50 shrink-0 whitespace-nowrap">
+                                            <time datetime="2021-02">Feb 2021</time> &ndash; <time datetime="2023-01">Jan 2023</time>
+                                        </span>
+                                    </div>
+                                    <span class="text-xs text-base-content/50 flex items-center gap-1 mt-0.5">
+                                        <i data-lucide="map-pin" aria-hidden="true" class="w-3 h-3 shrink-0"></i>
+                                        Bengaluru, India
+                                    </span>
+                                </div>
                             </div>
-                            <span class="badge badge-outline gap-1 shrink-0 whitespace-nowrap self-start">
-                                <i data-lucide="calendar"
-                                   aria-hidden="true"
-                                   class="w-3 h-3"></i>
-                                <time datetime="2021-02">Feb 2021</time> – <time datetime="2023-01">Jan 2023</time>
-                            </span>
                         </div>
-                        <ul class="space-y-1.5">
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
-                                <span>Led feature refinement, technical design, and architecture planning, including managing the team, handling client communication, and coordinating with stakeholders on a retail banking platform.</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
-                                <span>Designed and implemented the backend API layer for the customer onboarding module, covering account creation, eligibility checks, and product selection flows.</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
-                                <span>Integrated government identity APIs to support KYC verification and product eligibility checks during customer onboarding.</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
-                                <span>Developed the multi-step customer registration flow in Angular, integrating with backend APIs and identity verification services.</span>
-                            </li>
-                        </ul>
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="badge badge-soft badge-xs">Spring Boot</span>
-                            <span class="badge badge-soft badge-xs">REST / HATEOAS</span>
-                            <span class="badge badge-soft badge-xs">Angular</span>
-                            <span class="badge badge-soft badge-xs">PostgreSQL</span>
-                            <span class="badge badge-soft badge-xs">KYC</span>
+                        <div class="collapse-content pt-0">
+                            <div class="pl-4 space-y-2 pt-1 border-t border-base-200">
+                                <ul class="space-y-1.5 pt-2">
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Led feature refinement, technical design, and architecture planning, including managing the team, handling client communication, and coordinating with stakeholders on a retail banking platform.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Designed and implemented the backend API layer for the customer onboarding module, covering account creation, eligibility checks, and product selection flows.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Integrated government identity APIs to support KYC verification and product eligibility checks during customer onboarding.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Developed the multi-step customer registration flow in Angular, integrating with backend APIs and identity verification services.</span>
+                                    </li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    <span class="badge badge-soft badge-xs">Spring Boot</span>
+                                    <span class="badge badge-soft badge-xs">REST / HATEOAS</span>
+                                    <span class="badge badge-soft badge-xs">Angular</span>
+                                    <span class="badge badge-soft badge-xs">PostgreSQL</span>
+                                    <span class="badge badge-soft badge-xs">KYC</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Du Telecom Senior Software Engineer -->
-                    <div class="relative pl-7 space-y-2">
-                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-primary ring-1 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-                            <div>
-                                <h3 class="font-semibold text-base-content">Senior Software Engineer</h3>
-                                <p class="text-sm text-base-content/60 flex items-center gap-1.5 mt-0.5">
-                                    <i data-lucide="briefcase"
-                                       aria-hidden="true"
-                                       class="w-3.5 h-3.5"></i>
-                                    Du Telecom (via Phire Global) &middot; Dubai, UAE
-                                </p>
+                    <div class="collapse collapse-arrow border border-base-200 rounded-lg bg-base-100">
+                        <input type="checkbox" aria-label="Senior Software Engineer at Du Telecom" />
+                        <div class="collapse-title py-3 pr-10 min-h-0">
+                            <div class="flex items-start gap-2.5">
+                                <div class="w-8 h-8 rounded bg-base-200 flex items-center justify-center shrink-0 overflow-hidden mt-0.5">
+                                    <i data-lucide="briefcase" aria-hidden="true" class="w-4 h-4 opacity-30"></i>
+                                    <img src="assets/du.svg"
+                                         alt="Du Telecom logo"
+                                         class="w-full h-full object-contain p-1 hidden"
+                                         onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';"
+                                         onerror="this.style.display='none'" />
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5">
+                                        <span class="font-semibold text-base-content leading-snug">Du Telecom &ndash; Senior Software Engineer</span>
+                                        <span class="text-xs text-base-content/50 shrink-0 whitespace-nowrap">
+                                            <time datetime="2019-04">Apr 2019</time> &ndash; <time datetime="2021-02">Feb 2021</time>
+                                        </span>
+                                    </div>
+                                    <span class="text-xs text-base-content/50 flex items-center gap-1 mt-0.5">
+                                        <i data-lucide="map-pin" aria-hidden="true" class="w-3 h-3 shrink-0"></i>
+                                        Dubai, UAE
+                                    </span>
+                                </div>
                             </div>
-                            <span class="badge badge-outline gap-1 shrink-0 whitespace-nowrap self-start">
-                                <i data-lucide="calendar"
-                                   aria-hidden="true"
-                                   class="w-3 h-3"></i>
-                                <time datetime="2019-04">Apr 2019</time> – <time datetime="2021-02">Feb 2021</time>
-                            </span>
                         </div>
-                        <ul class="space-y-1.5">
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
-                                <span>Managed end-to-end delivery as the primary client contact, handling stakeholder communication, coordinating the development team, and translating business requirements into technical solutions.</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
-                                <span>Developed an Outlook add-in (Angular + Microsoft Office SDK) allowing users to upload contracts, attach emails, and view contract details directly from their inbox.</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
-                                <span>Designed a contract history system that saves a full snapshot at every change, letting users retrieve the exact state of a contract at any point in its history.</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
-                                <span>Implemented audit trail tracking all contract changes and user actions across the contract lifecycle.</span>
-                            </li>
-                        </ul>
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="badge badge-soft badge-xs">Java</span>
-                            <span class="badge badge-soft badge-xs">Angular</span>
-                            <span class="badge badge-soft badge-xs">Microsoft Office SDK</span>
-                            <span class="badge badge-soft badge-xs">REST APIs</span>
+                        <div class="collapse-content pt-0">
+                            <div class="pl-4 space-y-2 pt-1 border-t border-base-200">
+                                <ul class="space-y-1.5 pt-2">
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Managed end-to-end delivery as the primary client contact, handling stakeholder communication, coordinating the development team, and translating business requirements into technical solutions.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Developed an Outlook add-in (Angular + Microsoft Office SDK) allowing users to upload contracts, attach emails, and view contract details directly from their inbox.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Designed a contract history system that saves a full snapshot at every change, letting users retrieve the exact state of a contract at any point in its history.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Implemented audit trail tracking all contract changes and user actions across the contract lifecycle.</span>
+                                    </li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    <span class="badge badge-soft badge-xs">Java</span>
+                                    <span class="badge badge-soft badge-xs">Angular</span>
+                                    <span class="badge badge-soft badge-xs">Microsoft Office SDK</span>
+                                    <span class="badge badge-soft badge-xs">REST APIs</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- MetricStream Senior Member of Technical Staff -->
-                    <div class="relative pl-7 space-y-2">
-                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-primary ring-1 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-                            <div>
-                                <h3 class="font-semibold text-base-content">Senior Member of Technical Staff</h3>
-                                <p class="text-sm text-base-content/60 flex items-center gap-1.5 mt-0.5">
-                                    <i data-lucide="briefcase"
-                                       aria-hidden="true"
-                                       class="w-3.5 h-3.5"></i>
-                                    MetricStream &middot; Bengaluru, India
-                                </p>
+                    <div class="collapse collapse-arrow border border-base-200 rounded-lg bg-base-100">
+                        <input type="checkbox" aria-label="Senior Member of Technical Staff at MetricStream" />
+                        <div class="collapse-title py-3 pr-10 min-h-0">
+                            <div class="flex items-start gap-2.5">
+                                <div class="w-8 h-8 rounded bg-base-200 flex items-center justify-center shrink-0 overflow-hidden mt-0.5">
+                                    <i data-lucide="briefcase" aria-hidden="true" class="w-4 h-4 opacity-30"></i>
+                                    <img src="assets/metricstream.avif"
+                                         alt="MetricStream logo"
+                                         class="w-full h-full object-contain p-1 hidden"
+                                         onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';"
+                                         onerror="this.style.display='none'" />
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5">
+                                        <span class="font-semibold text-base-content leading-snug">MetricStream &ndash; Senior Member of Technical Staff</span>
+                                        <span class="text-xs text-base-content/50 shrink-0 whitespace-nowrap">
+                                            <time datetime="2018-04">Apr 2018</time> &ndash; <time datetime="2019-04">Apr 2019</time>
+                                        </span>
+                                    </div>
+                                    <span class="text-xs text-base-content/50 flex items-center gap-1 mt-0.5">
+                                        <i data-lucide="map-pin" aria-hidden="true" class="w-3 h-3 shrink-0"></i>
+                                        Bengaluru, India
+                                    </span>
+                                </div>
                             </div>
-                            <span class="badge badge-outline gap-1 shrink-0 whitespace-nowrap self-start">
-                                <i data-lucide="calendar"
-                                   aria-hidden="true"
-                                   class="w-3 h-3"></i>
-                                <time datetime="2018-04">Apr 2018</time> – <time datetime="2019-04">Apr 2019</time>
-                            </span>
                         </div>
-                        <ul class="space-y-1.5">
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
-                                <span>Built custom audit dashboards for a global financial audit firm, applying IFRS and GAAP framework logic to support their internal audit workflows.</span>
-                            </li>
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
-                                <span>Migrated the reporting module to Spring framework with JPA support and developed new APIs using Jersey client as part of a major platform architecture and UI modernisation effort.</span>
-                            </li>
-                        </ul>
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="badge badge-soft badge-xs">Spring Boot</span>
-                            <span class="badge badge-soft badge-xs">JPA</span>
-                            <span class="badge badge-soft badge-xs">PostgreSQL</span>
-                            <span class="badge badge-soft badge-xs">IFRS</span>
-                            <span class="badge badge-soft badge-xs">GAAP</span>
+                        <div class="collapse-content pt-0">
+                            <div class="pl-4 space-y-2 pt-1 border-t border-base-200">
+                                <ul class="space-y-1.5 pt-2">
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Built custom audit dashboards for a global financial audit firm, applying IFRS and GAAP framework logic to support their internal audit workflows.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Migrated the reporting module to Spring framework with JPA support and developed new APIs using Jersey client as part of a major platform architecture and UI modernisation effort.</span>
+                                    </li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    <span class="badge badge-soft badge-xs">Spring Boot</span>
+                                    <span class="badge badge-soft badge-xs">JPA</span>
+                                    <span class="badge badge-soft badge-xs">PostgreSQL</span>
+                                    <span class="badge badge-soft badge-xs">IFRS</span>
+                                    <span class="badge badge-soft badge-xs">GAAP</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- MetricStream Member of Technical Staff (compact) -->
-                    <div class="relative pl-7 space-y-1 text-sm">
-                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-2 h-2 rounded-full bg-primary/50 ring-1 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                            <div>
-                                <span class="font-medium text-base-content">Member of Technical Staff</span>
-                                <span class="flex items-center gap-1.5 text-xs text-base-content/60 mt-0.5">
-                                    <i data-lucide="briefcase" aria-hidden="true" class="w-3.5 h-3.5 shrink-0"></i>
-                                    MetricStream &middot; Zaplet Team, Bengaluru, India
-                                </span>
+                    <div class="collapse collapse-arrow border border-base-200 rounded-lg bg-base-100">
+                        <input type="checkbox" aria-label="Member of Technical Staff at MetricStream" />
+                        <div class="collapse-title py-3 pr-10 min-h-0">
+                            <div class="flex items-start gap-2.5">
+                                <div class="w-8 h-8 rounded bg-base-200 flex items-center justify-center shrink-0 overflow-hidden mt-0.5">
+                                    <i data-lucide="briefcase" aria-hidden="true" class="w-4 h-4 opacity-30"></i>
+                                    <img src="assets/metricstream.avif"
+                                         alt="MetricStream logo"
+                                         class="w-full h-full object-contain p-1 hidden"
+                                         onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';"
+                                         onerror="this.style.display='none'" />
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5">
+                                        <span class="font-semibold text-base-content leading-snug">MetricStream &ndash; Member of Technical Staff</span>
+                                        <span class="text-xs text-base-content/50 shrink-0 whitespace-nowrap">
+                                            <time datetime="2015-04">Apr 2015</time> &ndash; <time datetime="2018-04">Apr 2018</time>
+                                        </span>
+                                    </div>
+                                    <span class="text-xs text-base-content/50 flex items-center gap-1 mt-0.5">
+                                        <i data-lucide="map-pin" aria-hidden="true" class="w-3 h-3 shrink-0"></i>
+                                        Bengaluru, India
+                                    </span>
+                                </div>
                             </div>
-                            <span class="text-xs text-base-content/50 shrink-0 whitespace-nowrap">
-                                <time datetime="2015-04">Apr 2015</time> – <time datetime="2018-04">Apr 2018</time>
-                            </span>
                         </div>
-                        <ul class="space-y-1 text-base-content/60">
-                            <li class="flex items-start gap-2">
-                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-base-content/30 mt-0.5 shrink-0"></i>
-                                <span>Developed an on-demand demo system that spun up a minimal platform instance on OpenShift with a time-limited public URL, enabling sales teams to run live customer demos.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-base-content/30 mt-0.5 shrink-0"></i>
-                                <span>Built a lightweight Lua-based controller service that automated data aggregation from multiple sources through web login and scraping, SSH, and API integrations.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-base-content/30 mt-0.5 shrink-0"></i>
-                                <span>Developed event and calendar pages on the company portal, giving users a structured view to schedule and track compliance activities.</span>
-                            </li>
-                        </ul>
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="badge badge-soft badge-xs">Lua</span>
-                            <span class="badge badge-soft badge-xs">Backbone.js</span>
-                            <span class="badge badge-soft badge-xs">OpenShift</span>
-                            <span class="badge badge-soft badge-xs">HTML</span>
-                            <span class="badge badge-soft badge-xs">CSS</span>
+                        <div class="collapse-content pt-0">
+                            <div class="pl-4 space-y-2 pt-1 border-t border-base-200">
+                                <ul class="space-y-1.5 pt-2">
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Developed an on-demand demo system that spun up a minimal platform instance on OpenShift with a time-limited public URL, enabling sales teams to run live customer demos.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Built a lightweight Lua-based controller service that automated data aggregation from multiple sources through web login and scraping, SSH, and API integrations.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
+                                        <span>Developed event and calendar pages on the company portal, giving users a structured view to schedule and track compliance activities.</span>
+                                    </li>
+                                </ul>
+                                <div class="flex flex-wrap gap-1.5 pt-1">
+                                    <span class="badge badge-soft badge-xs">Lua</span>
+                                    <span class="badge badge-soft badge-xs">Backbone.js</span>
+                                    <span class="badge badge-soft badge-xs">OpenShift</span>
+                                    <span class="badge badge-soft badge-xs">HTML</span>
+                                    <span class="badge badge-soft badge-xs">CSS</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -793,7 +861,6 @@
 
         <!-- Header -->
         <h1>Irshad Sheikh</h1>
-        <p class="ats-subtitle">Senior Software Engineer</p>
         <p class="ats-contact">
             Eindhoven, Netherlands &nbsp;|&nbsp;
             irshsheik@gmail.com &nbsp;|&nbsp;

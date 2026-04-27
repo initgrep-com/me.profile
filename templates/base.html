@@ -278,7 +278,6 @@
                     <div class="flex-1 space-y-3">
                         <div class="space-y-1">
                             <h1 class="text-3xl font-bold text-base-content">{{ meta.name }}</h1>
-                            <p class="text-base-content/70 text-lg">{{ meta.title }}</p>
 {% if meta.available %}
                             <div class="pt-1">
                                 <span class="badge badge-success gap-1.5">
@@ -359,116 +358,59 @@
                     </span>
                     Professional Experience
                 </h2>
-                <div class="relative space-y-6 mt-2 ml-3">
-                    <!-- Continuous vertical rail -->
-                    <div class="timeline-rail absolute left-0 top-3 bottom-3 w-px bg-base-content/20" aria-hidden="true"></div>
+                <div class="space-y-1 mt-2">
 
 {% for job in experience %}
 {% if job.visible is defined and not job.visible %}
-{% elif job.weight == 'prominent' %}
-                    <!-- {{ job.company }} {{ job.role }} -->
-                    <div class="relative pl-7 space-y-2">
-                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-primary ring-2 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-                            <div>
-                                <h3 class="font-semibold text-base-content">{{ job.role }}</h3>
-                                <p class="text-sm text-base-content/60 flex items-center gap-1.5 mt-0.5">
-                                    <i data-lucide="briefcase"
-                                       aria-hidden="true"
-                                       class="w-3.5 h-3.5"></i>
-                                    {{ job.company }}{% if job.via %} (via {{ job.via }}){% endif %} &middot; {{ job.location }}
-                                </p>
+{% else %}
+                    <div class="collapse collapse-arrow border border-base-200 rounded-lg{% if job.end == 'present' %} border-primary/30 bg-primary/10{% else %} bg-base-100{% endif %}">
+                        <input type="checkbox" aria-label="{{ job.role }} at {{ job.company }}" />
+                        <div class="collapse-title py-3 pr-10 min-h-0">
+                            <div class="flex items-start gap-2.5">
+                                <div class="w-8 h-8 rounded bg-base-200 flex items-center justify-center shrink-0 overflow-hidden mt-0.5">
+{% if job.logo is defined %}
+                                    <i data-lucide="briefcase" aria-hidden="true" class="w-4 h-4 opacity-30"></i>
+                                    <img src="{{ job.logo }}"
+                                         alt="{{ job.company }} logo"
+                                         class="w-full h-full object-contain p-1 hidden"
+                                         onload="this.classList.remove('hidden'); this.previousElementSibling.style.display='none';"
+                                         onerror="this.style.display='none'" />
+{% else %}
+                                    <i data-lucide="briefcase" aria-hidden="true" class="w-4 h-4 opacity-30"></i>
+{% endif %}
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-0.5">
+                                        <span class="font-semibold text-base-content leading-snug">{{ job.company }} &ndash; {{ job.role }}{% if job.end == 'present' %} <span class="badge badge-primary badge-xs ml-1 align-middle">Current</span>{% endif %}</span>
+                                        <span class="text-xs text-base-content/50 shrink-0 whitespace-nowrap">
+                                            <time datetime="{{ job.start }}">{{ job.start | format_date }}</time> &ndash; <time datetime="{{ job.end }}">{{ job.end | format_date }}</time>
+                                        </span>
+                                    </div>
+                                    <span class="text-xs text-base-content/50 flex items-center gap-1 mt-0.5">
+                                        <i data-lucide="map-pin" aria-hidden="true" class="w-3 h-3 shrink-0"></i>
+                                        {{ job.location }}
+                                    </span>
+                                </div>
                             </div>
-                            <span class="badge badge-outline gap-1 shrink-0 whitespace-nowrap self-start">
-                                <i data-lucide="calendar"
-                                   aria-hidden="true"
-                                   class="w-3 h-3"></i>
-                                <time datetime="{{ job.start }}">{{ job.start | format_date }}</time> – <time datetime="{{ job.end }}">{{ job.end | format_date }}</time>
-                            </span>
                         </div>
-                        <ul class="space-y-1.5">
+                        <div class="collapse-content pt-0">
+                            <div class="pl-4 space-y-2 pt-1 border-t border-base-200">
+                                <ul class="space-y-1.5 pt-2">
 {% for highlight in job.highlights %}
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-primary mt-0.5 shrink-0"></i>
-                                <span>{{ highlight }}</span>
-                            </li>
+                                    <li class="flex items-start gap-2 text-sm text-base-content/80">
+                                        <i data-lucide="chevron-right"
+                                           aria-hidden="true"
+                                           class="w-4 h-4 {% if job.end == 'present' %}text-primary{% else %}text-base-content/40{% endif %} mt-0.5 shrink-0"></i>
+                                        <span>{{ highlight }}</span>
+                                    </li>
 {% endfor %}
-                        </ul>
-                        <div class="flex flex-wrap gap-1.5 pt-1">
+                                </ul>
+                                <div class="flex flex-wrap gap-1.5 pt-1">
 {% for skill in job.skills %}
-                            <span class="badge badge-soft badge-xs">{{ skill }}</span>
+                                    <span class="badge badge-soft badge-xs">{{ skill }}</span>
 {% endfor %}
-                        </div>
-                    </div>
-
-{% elif job.weight == 'standard' %}
-                    <!-- {{ job.company }} {{ job.role }} -->
-                    <div class="relative pl-7 space-y-2">
-                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-primary ring-1 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-                            <div>
-                                <h3 class="font-semibold text-base-content">{{ job.role }}</h3>
-                                <p class="text-sm text-base-content/60 flex items-center gap-1.5 mt-0.5">
-                                    <i data-lucide="briefcase"
-                                       aria-hidden="true"
-                                       class="w-3.5 h-3.5"></i>
-                                    {{ job.company }}{% if job.via %} (via {{ job.via }}){% endif %} &middot; {{ job.location }}
-                                </p>
+                                </div>
                             </div>
-                            <span class="badge badge-outline gap-1 shrink-0 whitespace-nowrap self-start">
-                                <i data-lucide="calendar"
-                                   aria-hidden="true"
-                                   class="w-3 h-3"></i>
-                                <time datetime="{{ job.start }}">{{ job.start | format_date }}</time> – <time datetime="{{ job.end }}">{{ job.end | format_date }}</time>
-                            </span>
-                        </div>
-                        <ul class="space-y-1.5">
-{% for highlight in job.highlights %}
-                            <li class="flex items-start gap-2 text-sm text-base-content/80">
-                                <i data-lucide="chevron-right"
-                                   aria-hidden="true"
-                                   class="w-4 h-4 text-base-content/40 mt-0.5 shrink-0"></i>
-                                <span>{{ highlight }}</span>
-                            </li>
-{% endfor %}
-                        </ul>
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-{% for skill in job.skills %}
-                            <span class="badge badge-soft badge-xs">{{ skill }}</span>
-{% endfor %}
-                        </div>
-                    </div>
-
-{% elif job.weight == 'compact' %}
-                    <!-- {{ job.company }} {{ job.role }} (compact) -->
-                    <div class="relative pl-7 space-y-1 text-sm">
-                        <div class="timeline-dot absolute left-0 top-1.5 -translate-x-1/2 w-2 h-2 rounded-full bg-primary/50 ring-1 ring-primary/20 border-2 border-base-200" aria-hidden="true"></div>
-                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                            <div>
-                                <span class="font-medium text-base-content">{{ job.role }}</span>
-                                <span class="flex items-center gap-1.5 text-xs text-base-content/60 mt-0.5">
-                                    <i data-lucide="briefcase" aria-hidden="true" class="w-3.5 h-3.5 shrink-0"></i>
-                                    {{ job.company }}{% if job.team %} &middot; {{ job.team }},{% endif %} {{ job.location }}
-                                </span>
-                            </div>
-                            <span class="text-xs text-base-content/50 shrink-0 whitespace-nowrap">
-                                <time datetime="{{ job.start }}">{{ job.start | format_date }}</time> – <time datetime="{{ job.end }}">{{ job.end | format_date }}</time>
-                            </span>
-                        </div>
-                        <ul class="space-y-1 text-base-content/60">
-{% for highlight in job.highlights %}
-                            <li class="flex items-start gap-2">
-                                <i data-lucide="chevron-right" aria-hidden="true" class="w-4 h-4 text-base-content/30 mt-0.5 shrink-0"></i>
-                                <span>{{ highlight }}</span>
-                            </li>
-{% endfor %}
-                        </ul>
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-{% for skill in job.skills %}
-                            <span class="badge badge-soft badge-xs">{{ skill }}</span>
-{% endfor %}
                         </div>
                     </div>
 
@@ -555,7 +497,6 @@
 
         <!-- Header -->
         <h1>{{ meta.name }}</h1>
-        <p class="ats-subtitle">{{ meta.title }}</p>
         <p class="ats-contact">
             {{ meta.location }} &nbsp;|&nbsp;
             {{ meta.email }} &nbsp;|&nbsp;
