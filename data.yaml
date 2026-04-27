@@ -23,6 +23,7 @@ experience:
     via: Luxoft
     role: Platform Engineer
     location: Eindhoven, Netherlands
+    logo: assets/asml.svg
     start: "2025-01"
     end: present
     weight: prominent
@@ -44,6 +45,7 @@ experience:
     via: Luxoft
     role: Senior Software Engineer
     location: Eindhoven, Netherlands
+    logo: assets/asml.svg
     start: "2023-01"
     end: "2025-01"
     weight: prominent
@@ -66,6 +68,7 @@ experience:
     via: Luxoft
     role: Senior Software Engineer
     location: Bengaluru, India
+    logo: assets/cimb.svg
     start: "2021-02"
     end: "2023-01"
     weight: standard
@@ -85,6 +88,7 @@ experience:
     via: Phire Global
     role: Senior Software Engineer
     location: Dubai, UAE
+    logo: assets/du.svg
     start: "2019-04"
     end: "2021-02"
     weight: standard
@@ -102,6 +106,7 @@ experience:
   - company: MetricStream
     role: Senior Member of Technical Staff
     location: Bengaluru, India
+    logo: assets/metricstream.avif
     start: "2018-04"
     end: "2019-04"
     weight: standard
@@ -119,6 +124,7 @@ experience:
     team: Zaplet Team
     role: Member of Technical Staff
     location: Bengaluru, India
+    logo: assets/metricstream.avif
     start: "2015-04"
     end: "2018-04"
     weight: compact
